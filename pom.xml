@@ -33,6 +33,7 @@
         <disruptor.version>3.4.4</disruptor.version>
         <caffeine.version>2.9.3</caffeine.version>
         <guava.version>33.3.0-jre</guava.version>
+        <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.17.0</commons-lang.version>
 
     </properties>
@@ -103,6 +104,11 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>${jsonpath.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
