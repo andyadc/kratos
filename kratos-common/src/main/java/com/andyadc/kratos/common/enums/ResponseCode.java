@@ -42,4 +42,17 @@ public enum ResponseCode {
         this.code = code;
         this.message = msg;
     }
+
+    public HttpResponseStatus status() {
+        return status;
+    }
+
+    public int code() {
+        return code;
+    }
+
+    public String message() {
+        return message;
+    }
+
 }

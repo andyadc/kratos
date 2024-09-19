@@ -51,4 +51,12 @@ public interface Constants {
     String ENABLE = "Y";
 
     String DISABLE = "N";
+
+    String CODE = "code";
+
+    String STATUS = "status";
+
+    String DATA = "data";
+
+    String MESSAGE = "message";
 }
