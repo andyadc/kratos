@@ -13,6 +13,8 @@ import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.netty.handler.codec.http.cookie.Cookie;
 import io.netty.handler.codec.http.cookie.ServerCookieDecoder;
+import org.apache.commons.lang3.StringUtils;
+import org.asynchttpclient.Request;
 import org.asynchttpclient.RequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +26,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class DefaultHttpGatewayRequest {
+public class DefaultHttpGatewayRequest implements HttpGatewayRequest {
 
     private final Logger logger = LoggerFactory.getLogger(DefaultHttpGatewayRequest.class);
 
@@ -93,11 +95,11 @@ public class DefaultHttpGatewayRequest {
     /**
      * 请求host
      */
-    private final String requestHost;
+    private String requestHost;
     /**
      * 请求path
      */
-    private final String requestPath;
+    private String requestPath;
     /**
      * 请求体数据
      */
@@ -187,4 +189,124 @@ public class DefaultHttpGatewayRequest {
         return HttpMethod.POST.equals(method) &&
                 contentType.startsWith(HttpHeaderValues.APPLICATION_JSON.toString());
     }
+
+    @Override
+    public String getRequestHost() {
+        return this.requestHost;
+    }
+
+    @Override
+    public void setRequestHost(String host) {
+        this.requestHost = host;
+    }
+
+    @Override
+    public String getRequestPath() {
+        return this.requestPath;
+    }
+
+    @Override
+    public void setRequestPath(String path) {
+        this.requestPath = path;
+    }
+
+    @Override
+    public void setHeader(CharSequence name, String value) {
+        this.requestBuilder.setHeader(name, value);
+    }
+
+    @Override
+    public void addHeader(CharSequence name, String value) {
+        this.requestBuilder.addHeader(name, value);
+    }
+
+    @Override
+    public void setRequestTimeout(int timeout) {
+        this.requestBuilder.setRequestTimeout(timeout);
+    }
+
+    @Override
+    public void addQueryParam(String name, String value) {
+        this.requestBuilder.addQueryParam(name, value);
+    }
+
+    @Override
+    public void addFormParam(String name, String value) {
+        if (isFormPost()) {
+            this.requestBuilder.addFormParam(name, value);
+        }
+    }
+
+    @Override
+    public void addOrUpdateCookie(Cookie cookie) {
+        this.requestBuilder.addOrReplaceCookie(cookie);
+    }
+
+    @Override
+    public String getRequestFinalUrl() {
+        return requestSchema.concat(requestHost).concat(requestPath);
+    }
+
+    @Override
+    public String getBody() {
+        if (StringUtils.isEmpty(this.body)) {
+            this.body = fullHttpRequest.content().toString(this.charset);
+        }
+        return this.body;
+    }
+
+    @Override
+    public Request buildRequest() {
+        requestBuilder.setUrl(getRequestFinalUrl());
+        return requestBuilder.build();
+    }
+
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
+    public long getBeginTime() {
+        return beginTime;
+    }
+
+    public Charset getCharset() {
+        return charset;
+    }
+
+    public String getClientIp() {
+        return clientIp;
+    }
+
+    public String getTargetHost() {
+        return targetHost;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public HttpMethod getMethod() {
+        return method;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public HttpHeaders getHeaders() {
+        return headers;
+    }
+
+    public QueryStringDecoder getQueryDecoder() {
+        return queryDecoder;
+    }
+
+    public FullHttpRequest getFullHttpRequest() {
+        return fullHttpRequest;
+    }
+
 }
