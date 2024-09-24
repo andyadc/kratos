@@ -11,11 +11,11 @@
 
     <modules>
         <module>kratos-common</module>
-        <module>kratos-core</module>
         <module>kratos-context</module>
-        <module>kratos-processor</module>
+        <module>kratos-core</module>
         <module>kratos-concurrent</module>
         <module>kratos-protocol</module>
+        <module>kratos-processor</module>
         <module>kratos-plugins</module>
         <module>kratos-ratelimit</module>
         <module>kratos-loadbalance</module>
@@ -32,7 +32,7 @@
         <async-http-client.version>2.12.3</async-http-client.version>
         <disruptor.version>3.4.4</disruptor.version>
         <caffeine.version>2.9.3</caffeine.version>
-        <guava.version>33.3.0-jre</guava.version>
+        <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.17.0</commons-lang.version>
         <fastjson.verson>2.0.53</fastjson.verson>
