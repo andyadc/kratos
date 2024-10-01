@@ -59,4 +59,16 @@ public interface Constants {
     String DATA = "data";
 
     String MESSAGE = "message";
+
+    String HTTP_INVOKER = "http_invoker";
+
+    String RPC_INVOKER = "rpc_invoker";
+
+    String WEBSOCKET_INVOKER = "websocket_invoker";
+
+    String MATCH_INSTANCES = "match_instances";
+
+    String LOAD_INSTANCE = "load_instance";
+
+    String ATTACHMENT = "attachment";
 }
