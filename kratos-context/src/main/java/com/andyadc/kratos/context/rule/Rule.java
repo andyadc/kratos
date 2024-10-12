@@ -13,6 +13,7 @@ import java.util.Set;
 public class Rule implements Comparable<Rule>, Serializable {
 
     private static final long serialVersionUID = 4337815413943061045L;
+
     /**
      * 规则ID，全局唯一
      */
@@ -60,21 +61,21 @@ public class Rule implements Comparable<Rule>, Serializable {
     /**
      * 添加规则
      */
-    public boolean addFilterConfig(FilterRule filterRule) {
+    public boolean addFilterRule(FilterRule filterRule) {
         return this.filterRules.add(filterRule);
     }
 
     /**
      * 获取匹配到的规则
      */
-    public FilterRule getFilterConfig(String id) {
+    public FilterRule getFilterRule(String id) {
         return StringUtils.isEmpty(id) ? null : filterRules.stream().filter(filterRule -> id.equalsIgnoreCase(filterRule.getId())).findFirst().orElse(null);
     }
 
     /**
      * 是否包含指定的规则
      */
-    public boolean containsFilterConfig(String id) {
+    public boolean containsFilterRule(String id) {
         return !StringUtils.isEmpty(id) && filterRules.stream().anyMatch(filterRule -> id.equalsIgnoreCase(filterRule.getId()));
     }
 
@@ -156,11 +157,11 @@ public class Rule implements Comparable<Rule>, Serializable {
         this.order = order;
     }
 
-    public Set<FilterRule> getFilterConfigs() {
+    public Set<FilterRule> getFilterRules() {
         return filterRules;
     }
 
-    public void setFilterConfigs(Set<FilterRule> filterRules) {
+    public void setFilterRules(Set<FilterRule> filterRules) {
         this.filterRules = filterRules;
     }
 
