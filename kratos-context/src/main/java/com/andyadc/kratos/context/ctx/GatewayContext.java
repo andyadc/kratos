@@ -1,7 +1,10 @@
 package com.andyadc.kratos.context.ctx;
 
 import com.andyadc.kratos.context.attribute.AttributeKey;
+import com.andyadc.kratos.context.request.HttpGatewayRequest;
+import com.andyadc.kratos.context.rule.FilterRule;
 import com.andyadc.kratos.context.rule.Rule;
+import io.micrometer.core.instrument.Timer;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.function.Consumer;
@@ -80,4 +83,54 @@ public interface GatewayContext extends Context {
      * 执行回调函数
      */
     void invokeCallback();
+
+    /**
+     * 获取上下文属性
+     */
+    <T> T getRequiredAttribute(AttributeKey<T> key);
+
+    /**
+     * 获取上下文属性
+     */
+    <T> T getAttributeOrDefault(AttributeKey<T> key, T defaultValue);
+
+    /**
+     * 根据id获取过滤规则
+     */
+    FilterRule getFilterRule(String filterId);
+
+    /**
+     * 获取唯一id
+     */
+    String getUniqueId();
+
+    /**
+     * 获取原始请求
+     */
+    HttpGatewayRequest getOriginRequest();
+
+    /**
+     * 获取可修改的请求
+     */
+    HttpGatewayRequest getModifyRequest();
+
+    /**
+     * 判断是否是灰度
+     */
+    boolean isGray();
+
+    /**
+     * 设置灰度标识
+     */
+    void setGray(boolean gray);
+
+    /**
+     * 获取时间
+     */
+    Timer.Sample getTimerSample();
+
+    /**
+     * 设置时间
+     */
+    void setTimerSample(Timer.Sample timerSample);
 }
