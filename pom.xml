@@ -13,13 +13,14 @@
         <module>kratos-common</module>
         <module>kratos-context</module>
         <module>kratos-core</module>
-        <module>kratos-concurrent</module>
-        <module>kratos-protocol</module>
+        <module>kratos-filter</module>
         <module>kratos-processor</module>
-        <module>kratos-plugins</module>
+        <module>kratos-protocol</module>
+        <module>kratos-concurrent</module>
         <module>kratos-ratelimit</module>
         <module>kratos-loadbalance</module>
         <module>kratos-breaker</module>
+        <module>kratos-plugins</module>
     </modules>
 
     <properties>
