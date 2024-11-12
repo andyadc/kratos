@@ -1,5 +1,8 @@
 package com.andyadc.kratos.context.request;
 
+/**
+ * RPC请求默认实现类
+ */
 public class DefaultRpcGatewayRequest implements RpcGatewayRequest {
 
     /**

@@ -26,6 +26,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * HttpGatewayRequest 实现类
+ */
 public class DefaultHttpGatewayRequest implements HttpGatewayRequest {
 
     private final Logger logger = LoggerFactory.getLogger(DefaultHttpGatewayRequest.class);
