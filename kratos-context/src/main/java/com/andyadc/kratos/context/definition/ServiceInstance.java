@@ -3,6 +3,9 @@ package com.andyadc.kratos.context.definition;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * 服务实例模型类
+ */
 public class ServiceInstance implements Serializable {
 
     private static final long serialVersionUID = -2831827682845856138L;

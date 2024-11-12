@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 服务注册到注册中心的模型类
+ */
 public class ServiceDefinition implements Serializable {
 
     private static final long serialVersionUID = -3718652210391955705L;
