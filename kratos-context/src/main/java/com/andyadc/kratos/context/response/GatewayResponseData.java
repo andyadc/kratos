@@ -7,6 +7,9 @@ import org.asynchttpclient.Response;
 
 import java.io.Serializable;
 
+/**
+ * 返回的数据
+ */
 public class GatewayResponseData implements Serializable {
 
     private static final long serialVersionUID = 7234071907494922073L;

@@ -3,6 +3,9 @@ package com.andyadc.kratos.context.response;
 import com.andyadc.kratos.common.enums.ResponseCode;
 import org.asynchttpclient.Response;
 
+/**
+ * 响应顶层接口
+ */
 public interface GatewayResponse {
 
     /**
