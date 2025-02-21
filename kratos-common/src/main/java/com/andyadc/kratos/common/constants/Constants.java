@@ -36,6 +36,8 @@ public interface Constants {
 
     String DIT_SEPARATOR = ".";
 
+    String FORWARD_VALUE_SPLIT = ", ";
+
     String HTTP_PREFIX_SEPARATOR = "http://";
 
     String HTTPS_PREFIX_SEPARATOR = "https://";
@@ -71,4 +73,17 @@ public interface Constants {
     String LOAD_INSTANCE = "load_instance";
 
     String ATTACHMENT = "attachment";
+
+    String UNIQUE_ID = "uniqueId";
+
+    String RPC_TRANSFER_CONTEXT = "RPC_TRANSFER_CONTEXT";
+
+    String APPLICATION_CONFIG_NAME = "polaris-consumer";
+
+    String APPLICATION_OWNER = "polaris";
+
+    String APPLICATION_ORGANIZATION = "polaris";
+
+    int DEFAULT_TIMEOUT = 5000;
+
 }
