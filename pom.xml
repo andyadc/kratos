@@ -21,6 +21,7 @@
         <module>kratos-loadbalance</module>
         <module>kratos-breaker</module>
         <module>kratos-plugins</module>
+        <module>kratos-exector</module>
     </modules>
 
     <properties>
@@ -32,11 +33,13 @@
         <netty.version>4.1.117.Final</netty.version>
         <async-http-client.version>2.12.3</async-http-client.version>
         <disruptor.version>3.4.4</disruptor.version>
+        <dubbo.version>2.7.23</dubbo.version>
         <caffeine.version>2.9.3</caffeine.version>
+        <jackson.version>2.18.2</jackson.version>
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.17.0</commons-lang.version>
-        <fastjson.version>2.0.55</fastjson.version>
+        <fastjson.version>2.0.56</fastjson.version>
         <micrometer.version>1.14.3</micrometer.version>
 
     </properties>
@@ -99,9 +102,19 @@
                 <version>${disruptor.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-common</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>
                 <artifactId>caffeine</artifactId>
                 <version>${caffeine.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
