@@ -21,9 +21,9 @@ public interface GatewayFilter<T> {
     void nextFilter(T t, Object... args) throws Exception;
 
     /**
-     * 执行对象方法
+     * 传输对象方法
      */
-    void executeEntry(T t, Object... args) throws Exception;
+    void transform(T t, Object... args) throws Exception;
 
     /**
      * 初始化方法，不做强制实现处理
@@ -42,4 +42,5 @@ public interface GatewayFilter<T> {
      */
     default void refreshFilter() throws Exception {
     }
+
 }
