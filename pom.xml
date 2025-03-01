@@ -35,7 +35,7 @@
         <disruptor.version>3.4.4</disruptor.version>
         <dubbo.version>2.7.23</dubbo.version>
         <caffeine.version>2.9.3</caffeine.version>
-        <jackson.version>2.18.2</jackson.version>
+        <jackson.version>2.18.3</jackson.version>
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.17.0</commons-lang.version>
