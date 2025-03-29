@@ -32,6 +32,18 @@ public class RequestResponseContext extends AbstractContext {
         this.rule = rule;
     }
 
+    public static RequestResponseContext getRequestResponseContext(String protocol,
+                                                                   ChannelHandlerContext nettyContext,
+                                                                   boolean keepAlive,
+                                                                   HttpGatewayRequest request,
+                                                                   Rule rule) {
+        AssertUtils.notNull(protocol, "protocol不能为空");
+        AssertUtils.notNull(nettyContext, "nettyCtx不能为空");
+        AssertUtils.notNull(request, "rapidRequest不能为空");
+        AssertUtils.notNull(rule, "rule不能为空");
+        return new RequestResponseContext(protocol, nettyContext, keepAlive, request, rule);
+    }
+
     @Override
     public Rule getRule() {
         return this.rule;
@@ -114,4 +126,5 @@ public class RequestResponseContext extends AbstractContext {
     public void setTimerSample(Timer.Sample timerSample) {
         this.timerSample = timerSample;
     }
+
 }
