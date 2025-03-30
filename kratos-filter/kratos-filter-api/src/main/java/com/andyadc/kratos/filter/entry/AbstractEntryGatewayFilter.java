@@ -2,13 +2,13 @@ package com.andyadc.kratos.filter.entry;
 
 import com.andyadc.kratos.common.constants.Constants;
 import com.andyadc.kratos.common.util.JsonUtils;
+import com.andyadc.kratos.common.util.StringUtils;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.rule.FilterRule;
 import com.andyadc.kratos.filter.annotation.Filter;
 import com.andyadc.kratos.filter.base.AbstractGatewayFilter;
 import com.andyadc.kratos.filter.cache.CacheFactory;
 import com.github.benmanes.caffeine.cache.Cache;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
