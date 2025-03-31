@@ -1,7 +1,5 @@
 package com.andyadc.kratos.common.util;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -290,7 +288,7 @@ public class AntPathMatcher {
                 pos += skipped;
                 skipped = skipSegment(path, pos, pattDir);
                 if (skipped < pattDir.length()) {
-                    return (skipped > 0 || (pattDir.length() > 0 &&
+                    return (skipped > 0 || (!pattDir.isEmpty() &&
                             isWildcardChar(pattDir.charAt(0))));
                 }
                 pos += skipped;
@@ -504,14 +502,14 @@ public class AntPathMatcher {
      */
 
     public String combine(String pattern1, String pattern2) {
-        if (!StringUtils.isNotEmpty(pattern1) &&
-                !StringUtils.isNotEmpty(pattern2)) {
+        if (StringUtils.isEmpty(pattern1) &&
+                StringUtils.isEmpty(pattern2)) {
             return "";
         }
-        if (!StringUtils.isNotEmpty(pattern1)) {
+        if (StringUtils.isEmpty(pattern1)) {
             return pattern2;
         }
-        if (!StringUtils.isNotEmpty(pattern2)) {
+        if (StringUtils.isEmpty(pattern2)) {
             return pattern1;
         }
 
@@ -606,7 +604,7 @@ public class AntPathMatcher {
                 token = token.trim();
             }
             if (!ignoreEmptyTokens ||
-                    token.length() > 0) {
+                    !token.isEmpty()) {
                 tokens.add(token);
             }
         }

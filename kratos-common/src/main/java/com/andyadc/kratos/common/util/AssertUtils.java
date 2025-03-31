@@ -1,8 +1,7 @@
 package com.andyadc.kratos.common.util;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class AssertUtils {
+
     private AssertUtils() {
     }
 
