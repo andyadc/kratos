@@ -86,4 +86,12 @@ public interface Constants {
 
     int DEFAULT_TIMEOUT = 5000;
 
+    String DEFAULT_FILTER_CHAIN = "defaultFilterChain";
+
+    String ERROR_FILTER_CHAIN = "errorFilterChain";
+
+    String MOCK_FILTER_CHAIN = "mockFilterChain";
+
+    String GRAY_FILTER_CHAIN = "grayFilterChain";
+
 }
