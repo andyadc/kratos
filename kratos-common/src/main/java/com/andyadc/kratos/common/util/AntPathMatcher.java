@@ -1,12 +1,6 @@
 package com.andyadc.kratos.common.util;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,7 +41,6 @@ public class AntPathMatcher {
      * A convenient, alternative constructor to use with a custom path separator.
      *
      * @param pathSeparator the path separator to use, must not be {@code null}.
-     * @since 4.1
      */
     public AntPathMatcher(String pathSeparator) {
         AssertUtils.notNull(pathSeparator, "'pathSeparator' is required");
@@ -68,8 +61,6 @@ public class AntPathMatcher {
     /**
      * Specify whether to perform pattern matching in a case-sensitive fashion.
      * <p>Default is {@code true}. Switch this to {@code false} for case-insensitive matching.
-     *
-     * @since 4.2
      */
     public void setCaseSensitive(boolean caseSensitive) {
         this.caseSensitive = caseSensitive;
@@ -94,7 +85,6 @@ public class AntPathMatcher {
      * are coming in, with little chance for encountering a recurring pattern.
      *
      * @see #getStringMatcher(String)
-     * @since 4.0.1
      */
     public void setCachePatterns(boolean cachePatterns) {
         this.cachePatterns = cachePatterns;
@@ -105,7 +95,6 @@ public class AntPathMatcher {
         this.tokenizedPatternCache.clear();
         this.stringMatcherCache.clear();
     }
-
 
     public boolean isPattern(String path) {
         if (path == null) {
@@ -589,9 +578,7 @@ public class AntPathMatcher {
         return new AntPatternComparator(path);
     }
 
-    public String[] tokenizeToStringArray(String str,
-                                          String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
-
+    public String[] tokenizeToStringArray(String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
         if (str == null) {
             return EMPTY_STRING_ARRAY;
         }
@@ -785,7 +772,6 @@ public class AntPathMatcher {
 
             return 0;
         }
-
 
         /**
          * Value class that holds information about the pattern, e.g. number of
