@@ -52,7 +52,17 @@ public interface GatewayContext extends Context {
     /**
      * 获取网关上下文属性对应的泛型对象
      */
+    <T> T getAttribute(String key);
+
+    /**
+     * 获取网关上下文属性对应的泛型对象
+     */
     <T> T getAttribute(AttributeKey<T> key);
+
+    /**
+     * 添加网关上下文属性对应的泛型对象
+     */
+    <T> T putAttribute(String key, T value);
 
     /**
      * 添加网关上下文属性对应的泛型对象
@@ -133,4 +143,5 @@ public interface GatewayContext extends Context {
      * 设置时间
      */
     void setTimerSample(Timer.Sample timerSample);
+
 }

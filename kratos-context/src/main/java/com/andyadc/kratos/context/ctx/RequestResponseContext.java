@@ -50,7 +50,7 @@ public class RequestResponseContext extends AbstractContext {
     }
 
     @Override
-    public Object getRequest() {
+    public HttpGatewayRequest getRequest() {
         return this.request;
     }
 

@@ -36,6 +36,11 @@ public abstract class AbstractContext implements GatewayContext {
     protected final Map<AttributeKey<?>, Object> attributes = new ConcurrentHashMap<>();
 
     /**
+     * 存储String为key的上下文集合参数
+     */
+    protected final Map<String, Object> attributeStringMapping = new ConcurrentHashMap<>();
+
+    /**
      * 是否已经释放请求的资源标识
      */
     protected final AtomicBoolean requestReleased = new AtomicBoolean(false);
@@ -142,10 +147,20 @@ public abstract class AbstractContext implements GatewayContext {
         return (T) attributes.get(key);
     }
 
+    @Override
+    public <T> T getAttribute(String key) {
+        return (T) attributeStringMapping.get(key);
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public <T> T putAttribute(AttributeKey<T> key, T value) {
         return (T) attributes.put(key, value);
+    }
+
+    @Override
+    public <T> T putAttribute(String key, T value) {
+        return (T) attributeStringMapping.put(key, value);
     }
 
     @Override
