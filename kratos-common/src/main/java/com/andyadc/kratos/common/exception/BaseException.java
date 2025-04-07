@@ -21,6 +21,10 @@ public class BaseException extends RuntimeException {
         super(message);
     }
 
+    public BaseException(ResponseCode code) {
+        this.code = code;
+    }
+
     public BaseException(String message, ResponseCode code) {
         super(message);
         this.code = code;

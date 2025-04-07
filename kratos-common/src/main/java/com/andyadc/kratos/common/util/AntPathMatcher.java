@@ -1,6 +1,12 @@
 package com.andyadc.kratos.common.util;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -595,9 +601,9 @@ public class AntPathMatcher {
                 tokens.add(token);
             }
         }
-        return ((tokens == null || tokens.isEmpty()) ?
+        return tokens.isEmpty() ?
                 tokens.toArray(EMPTY_STRING_ARRAY) :
-                EMPTY_STRING_ARRAY);
+                EMPTY_STRING_ARRAY;
     }
 
     /**
