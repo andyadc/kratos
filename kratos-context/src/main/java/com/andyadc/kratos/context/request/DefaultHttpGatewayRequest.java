@@ -2,6 +2,7 @@ package com.andyadc.kratos.context.request;
 
 import com.andyadc.kratos.common.constants.Constants;
 import com.andyadc.kratos.common.time.SystemClock;
+import com.andyadc.kratos.common.util.StringUtils;
 import com.google.common.collect.Lists;
 import com.jayway.jsonpath.JsonPath;
 import io.netty.buffer.ByteBuf;
@@ -13,13 +14,13 @@ import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.netty.handler.codec.http.cookie.Cookie;
 import io.netty.handler.codec.http.cookie.ServerCookieDecoder;
-import org.apache.commons.lang3.StringUtils;
 import org.asynchttpclient.Request;
 import org.asynchttpclient.RequestBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -224,8 +225,8 @@ public class DefaultHttpGatewayRequest implements HttpGatewayRequest {
     }
 
     @Override
-    public void setRequestTimeout(int timeout) {
-        this.requestBuilder.setRequestTimeout(timeout);
+    public void setRequestTimeout(long timeout) {
+        this.requestBuilder.setRequestTimeout(Duration.ofSeconds(timeout));
     }
 
     @Override

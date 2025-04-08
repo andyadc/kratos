@@ -1,7 +1,8 @@
 package com.andyadc.kratos.context.rule;
 
-import org.apache.commons.lang3.StringUtils;
+import com.andyadc.kratos.common.util.StringUtils;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +13,7 @@ import java.util.Set;
  */
 public class Rule implements Comparable<Rule>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 4337815413943061045L;
 
     /**
@@ -76,7 +78,8 @@ public class Rule implements Comparable<Rule>, Serializable {
      * 是否包含指定的规则
      */
     public boolean containsFilterRule(String id) {
-        return !StringUtils.isEmpty(id) && filterRules.stream().anyMatch(filterRule -> id.equalsIgnoreCase(filterRule.getId()));
+        return !StringUtils.isEmpty(id)
+                && filterRules.stream().anyMatch(filterRule -> id.equalsIgnoreCase(filterRule.getId()));
     }
 
     @Override

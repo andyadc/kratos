@@ -47,7 +47,7 @@ public interface HttpGatewayRequest extends GatewayRequest {
     /**
      * 设置请求超时时间
      */
-    void setRequestTimeout(int timeout);
+    void setRequestTimeout(long timeout);
 
     /**
      * 添加查询参数，一般是放到请求路径后面
@@ -138,4 +138,5 @@ public interface HttpGatewayRequest extends GatewayRequest {
      * 获取FullHttpRequest
      */
     FullHttpRequest getFullHttpRequest();
+
 }

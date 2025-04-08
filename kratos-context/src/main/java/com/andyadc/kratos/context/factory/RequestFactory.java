@@ -6,6 +6,7 @@ import com.andyadc.kratos.common.enums.ResponseCode;
 import com.andyadc.kratos.common.exception.NullException;
 import com.andyadc.kratos.common.exception.UnmatchPathException;
 import com.andyadc.kratos.common.util.MatchUtils;
+import com.andyadc.kratos.common.util.StringUtils;
 import com.andyadc.kratos.context.attribute.AttributeKeyFactory;
 import com.andyadc.kratos.context.cache.ConfigCache;
 import com.andyadc.kratos.context.cache.ConfigCacheFactory;
@@ -22,7 +23,6 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.HttpUtil;
-import org.apache.commons.lang3.StringUtils;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
@@ -86,7 +86,7 @@ public class RequestFactory {
         String clientIp = null;
         if (StringUtils.isNotEmpty(forwardedValue)) {
             List<String> values = Arrays.asList(forwardedValue.split(Constants.FORWARD_VALUE_SPLIT));
-            if (values.size() >= 1 && StringUtils.isNotBlank(values.get(0))) {
+            if (!values.isEmpty() && StringUtils.isNotBlank(values.get(0))) {
                 clientIp = values.get(0);
             }
         }
@@ -96,7 +96,6 @@ public class RequestFactory {
         }
         return clientIp;
     }
-
 
     /**
      * 获取服务定义信息
@@ -108,7 +107,6 @@ public class RequestFactory {
         }
         return definition;
     }
-
 
     /**
      * 根据上下文和服务定义信息获取ServiceInvoker
@@ -143,7 +141,6 @@ public class RequestFactory {
 //            case Protocol.WEBSOCKET -> context.putAttribute(AttributeKeyFactory.getWebSocketInvoker(), invoker);
 //            default -> context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
 //        }
-
     }
 
 }
