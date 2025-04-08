@@ -8,8 +8,8 @@ public enum ResponseCode {
     INTERNAL_ERROR(HttpResponseStatus.INTERNAL_SERVER_ERROR, 1000, "网关内部错误"),
     SERVICE_UNAVAILABLE(HttpResponseStatus.SERVICE_UNAVAILABLE, 2000, "服务暂时不可用,请稍后再试"),
 
-    REQUEST_PARSE_ERROR(HttpResponseStatus.BAD_REQUEST, 10000, "请求解析错误, header中必须存在uniqueId参数"),
-    REQUEST_PARSE_ERROR_NO_UNIQUEID(HttpResponseStatus.BAD_REQUEST, 10001, "请求解析错误, header中必须存在uniqueId参数"),
+    REQUEST_PARSE_ERROR(HttpResponseStatus.BAD_REQUEST, 10000, "请求解析错误"),
+    REQUEST_PARSE_ERROR_NO_UNIQUEID(HttpResponseStatus.BAD_REQUEST, 10001, "请求解析错误, header中必须存在[uniqueId]参数"),
     PATH_NO_MATCHED(HttpResponseStatus.NOT_FOUND, 10002, "没有找到匹配的路径, 请求快速失败"),
     SERVICE_DEFINITION_NOT_FOUND(HttpResponseStatus.NOT_FOUND, 10003, "未找到对应的服务定义"),
     SERVICE_INVOKER_NOT_FOUND(HttpResponseStatus.NOT_FOUND, 10004, "未找到对应的调用实例"),
@@ -28,8 +28,8 @@ public enum ResponseCode {
     RPC_REQUEST_ERROR(HttpResponseStatus.INTERNAL_SERVER_ERROR, 10028, "服务请求异常"),
     RPC_RESPONSE_ERROR(HttpResponseStatus.INTERNAL_SERVER_ERROR, 10029, "服务返回异常"),
     VERIFICATION_FAILED(HttpResponseStatus.BAD_REQUEST, 10030, "请求参数校验失败"),
-    BLACKLIST(HttpResponseStatus.FORBIDDEN, 10004, "请求IP在黑名单"),
-    WHITELIST(HttpResponseStatus.FORBIDDEN, 10005, "请求IP不在白名单"),
+    IP_BLACKLIST(HttpResponseStatus.FORBIDDEN, 10004, "请求IP在黑名单"),
+    IP_WHITELIST(HttpResponseStatus.FORBIDDEN, 10005, "请求IP不在白名单"),
 
     ;
 
