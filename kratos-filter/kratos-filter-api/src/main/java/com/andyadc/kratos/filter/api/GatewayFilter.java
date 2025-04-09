@@ -1,8 +1,12 @@
-package com.andyadc.kratos.filter;
+package com.andyadc.kratos.filter.api;
+
+import com.andyadc.kratos.context.config.FilterConfig;
+import com.andyadc.kratos.spi.annotation.SPI;
 
 /**
  * 核心过滤器接口
  */
+@SPI
 public interface GatewayFilter<T> {
 
     /**
@@ -41,6 +45,12 @@ public interface GatewayFilter<T> {
      * 刷新过滤器，不做强制实现处理
      */
     default void refreshFilter() throws Exception {
+    }
+
+    /**
+     * 初始化过滤器配置
+     */
+    default void initFilterConfig(FilterConfig filterConfig) {
     }
 
 }

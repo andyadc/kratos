@@ -1,13 +1,14 @@
-package com.andyadc.kratos.filter.entry;
+package com.andyadc.kratos.filter.api.entry;
 
 import com.andyadc.kratos.common.constants.Constants;
 import com.andyadc.kratos.common.util.JsonUtils;
 import com.andyadc.kratos.common.util.StringUtils;
+import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.rule.FilterRule;
-import com.andyadc.kratos.filter.annotation.Filter;
-import com.andyadc.kratos.filter.base.AbstractGatewayFilter;
-import com.andyadc.kratos.filter.cache.CacheFactory;
+import com.andyadc.kratos.filter.api.annotation.Filter;
+import com.andyadc.kratos.filter.api.base.AbstractGatewayFilter;
+import com.andyadc.kratos.filter.api.cache.CacheFactory;
 import com.github.benmanes.caffeine.cache.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,15 +20,22 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractEntryGatewayFilter<T> extends AbstractGatewayFilter<GatewayContext> {
 
-    protected final Class<T> clazz;
     private final Logger logger = LoggerFactory.getLogger(AbstractEntryGatewayFilter.class);
+
+    protected final Class<T> clazz;
     protected Filter filterAnnotation;
     protected Cache<String, T> cache;
+    protected FilterConfig filterConfig;
 
     public AbstractEntryGatewayFilter(Class<T> clazz) {
         this.filterAnnotation = this.getClass().getAnnotation(Filter.class);
         this.clazz = clazz;
         this.cache = CacheFactory.getInstance().buildCache(CacheFactory.CONFIG_CACHE_ID);
+    }
+
+    @Override
+    public void initFilterConfig(FilterConfig filterConfig) {
+        this.filterConfig = filterConfig;
     }
 
     @Override
@@ -40,7 +48,6 @@ public abstract class AbstractEntryGatewayFilter<T> extends AbstractGatewayFilte
         T clazz = this.dynamicLoadCache(context, args);
         super.transform(context, clazz);
     }
-
 
     private T dynamicLoadCache(GatewayContext context, Object[] args) {
         FilterRule filterConfig = context.getRule().getFilterRule(filterAnnotation.id());

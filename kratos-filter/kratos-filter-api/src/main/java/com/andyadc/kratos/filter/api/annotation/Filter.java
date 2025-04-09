@@ -1,4 +1,4 @@
-package com.andyadc.kratos.filter.annotation;
+package com.andyadc.kratos.filter.api.annotation;
 
 import com.andyadc.kratos.common.enums.FilterType;
 

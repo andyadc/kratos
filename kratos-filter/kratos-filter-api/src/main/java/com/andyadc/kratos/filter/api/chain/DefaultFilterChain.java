@@ -1,7 +1,7 @@
-package com.andyadc.kratos.filter.chain;
+package com.andyadc.kratos.filter.api.chain;
 
 import com.andyadc.kratos.context.ctx.GatewayContext;
-import com.andyadc.kratos.filter.base.AbstractGatewayFilter;
+import com.andyadc.kratos.filter.api.base.AbstractGatewayFilter;
 
 /**
  * 默认过滤器链

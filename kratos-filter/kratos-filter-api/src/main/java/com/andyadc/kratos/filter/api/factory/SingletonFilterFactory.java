@@ -1,10 +1,10 @@
-package com.andyadc.kratos.filter.factory;
+package com.andyadc.kratos.filter.api.factory;
 
 import com.andyadc.kratos.common.enums.FilterType;
 import com.andyadc.kratos.common.util.CollectionUtils;
 import com.andyadc.kratos.context.ctx.GatewayContext;
-import com.andyadc.kratos.filter.GatewayFilter;
-import com.andyadc.kratos.filter.annotation.Filter;
+import com.andyadc.kratos.filter.api.GatewayFilter;
+import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.spi.annotation.SPIClass;
 import com.andyadc.kratos.spi.loader.ExtensionLoader;
 import org.slf4j.Logger;

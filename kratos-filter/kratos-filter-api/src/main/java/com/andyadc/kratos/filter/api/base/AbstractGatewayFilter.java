@@ -1,8 +1,8 @@
-package com.andyadc.kratos.filter.base;
+package com.andyadc.kratos.filter.api.base;
 
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.exector.response.ResponseHelper;
-import com.andyadc.kratos.filter.GatewayFilter;
+import com.andyadc.kratos.filter.api.GatewayFilter;
 
 /**
  * 抽象链表过滤器
@@ -12,7 +12,6 @@ public abstract class AbstractGatewayFilter<T> implements GatewayFilter<GatewayC
     /**
      * 下一个过滤器
      */
-
     protected AbstractGatewayFilter<T> nextFilter;
 
     @Override

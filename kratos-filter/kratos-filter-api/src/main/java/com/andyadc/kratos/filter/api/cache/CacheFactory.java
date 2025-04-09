@@ -1,4 +1,4 @@
-package com.andyadc.kratos.filter.cache;
+package com.andyadc.kratos.filter.api.cache;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;

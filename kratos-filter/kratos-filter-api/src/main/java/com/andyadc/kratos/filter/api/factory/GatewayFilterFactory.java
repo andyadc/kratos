@@ -1,8 +1,8 @@
-package com.andyadc.kratos.filter.factory;
+package com.andyadc.kratos.filter.api.factory;
 
 import com.andyadc.kratos.common.enums.FilterType;
 import com.andyadc.kratos.context.ctx.GatewayContext;
-import com.andyadc.kratos.filter.GatewayFilter;
+import com.andyadc.kratos.filter.api.GatewayFilter;
 
 import java.util.List;
 
