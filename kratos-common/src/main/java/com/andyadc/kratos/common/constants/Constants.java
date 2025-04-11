@@ -94,4 +94,12 @@ public interface Constants {
 
     String GRAY_FILTER_CHAIN = "grayFilterChain";
 
+    String STRATEGY_BLOCKING = "blocking";
+
+    String STRATEGY_YIELDING = "yielding";
+
+    String STRATEGY_SLEEPING = "sleeping";
+
+    String STRATEGY_BUSYSPIN = "busyspin";
+
 }

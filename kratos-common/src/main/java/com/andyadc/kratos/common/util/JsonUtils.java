@@ -7,7 +7,11 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.introspect.Annotated;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -15,6 +19,7 @@ import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 
+import java.io.Serial;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -133,10 +138,13 @@ public final class JsonUtils {
             mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
             FilterProvider filters = new SimpleFilterProvider()
-                    .addFilter(obj.getClass().getName(),
-                            SimpleBeanPropertyFilter.serializeAllExcept(filterFields));
+                    .addFilter(obj.getClass().getName(), SimpleBeanPropertyFilter.serializeAllExcept(filterFields));
+
             mapper.setFilterProvider(filters)
                     .setAnnotationIntrospector(new JacksonAnnotationIntrospector() {
+                        @Serial
+                        private static final long serialVersionUID = -2357350340902332713L;
+
                         @Override
                         public Object findFilterId(Annotated ac) {
                             return ac.getName();
@@ -145,21 +153,23 @@ public final class JsonUtils {
 
             return mapper.writeValueAsString(obj);
         } catch (Exception e) {
-            throw new RuntimeException("object format to json error:" + obj, e);
+            throw new RuntimeException("object format to json error: " + obj, e);
         }
     }
 
-    @SuppressWarnings("serial")
     public static String filterOutAllExcept(Object obj, String... filterFields) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
             FilterProvider filters = new SimpleFilterProvider()
-                    .addFilter(obj.getClass().getName(),
-                            SimpleBeanPropertyFilter.filterOutAllExcept(filterFields));
+                    .addFilter(obj.getClass().getName(), SimpleBeanPropertyFilter.filterOutAllExcept(filterFields));
+
             mapper.setFilterProvider(filters)
                     .setAnnotationIntrospector(new JacksonAnnotationIntrospector() {
+                        @Serial
+                        private static final long serialVersionUID = 5363988020711302999L;
+
                         @Override
                         public Object findFilterId(Annotated ac) {
                             return ac.getName();
@@ -177,7 +187,7 @@ public final class JsonUtils {
             JsonParser jsonParser = jasonFactory.createParser(str);
             while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
                 // get the current token
-                String fieldname = jsonParser.getCurrentName();
+                String fieldname = jsonParser.currentName();
                 if (fieldName.equals(fieldname)) {
                     // move to next token
                     jsonParser.nextToken();
