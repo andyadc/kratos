@@ -14,6 +14,7 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.HttpHeaderValues;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
+import org.asynchttpclient.Response;
 
 import java.util.Objects;
 
@@ -22,13 +23,17 @@ import java.util.Objects;
  */
 public class ResponseFactory {
 
-    private static final GatewayResponse POLARIS_RESPONSE = new DefaultGatewayResponse();
+    private static final GatewayResponse GATEWAY_RESPONSE = new DefaultGatewayResponse();
+
+    public static GatewayResponseData getGatewayResponse(Response response) {
+        return GATEWAY_RESPONSE.getGatewayResponse(response);
+    }
 
     /**
      * 获取响应对象
      */
     public static FullHttpResponse getHttpResponse(ResponseCode responseCode) {
-        GatewayResponseData response = POLARIS_RESPONSE.getGatewayResponse(responseCode);
+        GatewayResponseData response = GATEWAY_RESPONSE.getGatewayResponse(responseCode);
         DefaultFullHttpResponse httpResponse = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                 HttpResponseStatus.INTERNAL_SERVER_ERROR,
                 Unpooled.wrappedBuffer(response.getContent().getBytes()));

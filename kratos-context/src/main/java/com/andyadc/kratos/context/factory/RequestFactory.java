@@ -124,23 +124,12 @@ public class RequestFactory {
      * 将上下文信息设置到Context
      */
     private static void putContext(GatewayContext context, ServiceInvoker invoker) {
-        String protocol = context.getProtocol();
-        if (Protocol.HTTP.equals(protocol)) {
-            context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
-        } else if (Protocol.RPC.equals(protocol)) {
-            context.putAttribute(AttributeKeyFactory.getRpcInvoker(), invoker);
-        } else if (Protocol.WEBSOCKET.equals(protocol)) {
-            context.putAttribute(AttributeKeyFactory.getWebSocketInvoker(), invoker);
-        } else {
-            context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
+        switch (context.getProtocol()) {
+            case Protocol.HTTP -> context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
+            case Protocol.RPC -> context.putAttribute(AttributeKeyFactory.getRpcInvoker(), invoker);
+            case Protocol.WEBSOCKET -> context.putAttribute(AttributeKeyFactory.getWebSocketInvoker(), invoker);
+            default -> context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
         }
-
-//        switch (context.getProtocol()) {
-//            case Protocol.HTTP -> context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
-//            case Protocol.RPC -> context.putAttribute(AttributeKeyFactory.getRpcInvoker(), invoker);
-//            case Protocol.WEBSOCKET -> context.putAttribute(AttributeKeyFactory.getWebSocketInvoker(), invoker);
-//            default -> context.putAttribute(AttributeKeyFactory.getHttpInvoker(), invoker);
-//        }
     }
 
 }
