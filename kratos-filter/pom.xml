@@ -14,9 +14,10 @@
 
     <modules>
         <module>kratos-filter-api</module>
-        <module>kratos-filter-loadbalancer</module>
-        <module>kratos-filter-timeout</module>
+        <module>kratos-filter-pre-loadbalancer</module>
+        <module>kratos-filter-pre-timeout</module>
         <module>kratos-filter-route-http</module>
+        <module>kratos-filter-route-rpc</module>
     </modules>
 
     <properties>

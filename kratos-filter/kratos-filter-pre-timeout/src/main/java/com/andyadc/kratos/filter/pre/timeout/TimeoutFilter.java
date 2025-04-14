@@ -1,4 +1,4 @@
-package com.andyadc.kratos.filter.timeout;
+package com.andyadc.kratos.filter.pre.timeout;
 
 import com.andyadc.kratos.common.constants.Protocol;
 import com.andyadc.kratos.context.attribute.AttributeKeyFactory;
