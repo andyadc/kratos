@@ -9,7 +9,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>kratos-filter-loadbalancer</artifactId>
+    <artifactId>kratos-filter-pre-loadbalancer</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

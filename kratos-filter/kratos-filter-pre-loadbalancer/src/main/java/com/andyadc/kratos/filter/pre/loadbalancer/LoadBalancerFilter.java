@@ -1,4 +1,4 @@
-package com.andyadc.kratos.filter.loadbalancer;
+package com.andyadc.kratos.filter.pre.loadbalancer;
 
 import com.andyadc.kratos.common.constants.FilterConstants;
 import com.andyadc.kratos.common.constants.Protocol;
@@ -6,7 +6,7 @@ import com.andyadc.kratos.common.enums.FilterType;
 import com.andyadc.kratos.common.enums.ResponseCode;
 import com.andyadc.kratos.common.exception.GatewayException;
 import com.andyadc.kratos.context.attribute.AttributeKeyFactory;
-import com.andyadc.kratos.context.cache.ConfigCacheFactory;
+import com.andyadc.kratos.context.cache.config.ConfigCacheFactory;
 import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.ctx.RequestResponseContext;

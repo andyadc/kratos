@@ -1,0 +1,1 @@
+loadBalancerFilter=com.andyadc.kratos.filter.pre.loadbalancer.LoadBalancerFilter
