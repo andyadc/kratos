@@ -102,4 +102,8 @@ public interface Constants {
 
     String STRATEGY_BUSYSPIN = "busyspin";
 
+    String RLB_NAME = "rlb";
+
+    String KRATOS_GATEWAY = "kratos-gateway";
+
 }
