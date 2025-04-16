@@ -1,4 +1,4 @@
-package com.andyadc.kratos.context.cache;
+package com.andyadc.kratos.context.cache.config;
 
 import com.andyadc.kratos.context.definition.ServiceDefinition;
 import com.andyadc.kratos.context.definition.ServiceInstance;

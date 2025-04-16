@@ -30,6 +30,20 @@ public class ResponseFactory {
     }
 
     /**
+     * 获取网关响应对象
+     */
+    public static GatewayResponseData getGatewayResponse(Object content) {
+        return GATEWAY_RESPONSE.getGatewayResponse(content);
+    }
+
+    /**
+     * 获取网关的响应对象
+     */
+    public static GatewayResponseData getGatewayResponse(ResponseCode code, Object... args) {
+        return GATEWAY_RESPONSE.getGatewayResponse(code, args);
+    }
+
+    /**
      * 获取响应对象
      */
     public static FullHttpResponse getHttpResponse(ResponseCode responseCode) {

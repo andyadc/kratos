@@ -1,4 +1,4 @@
-package com.andyadc.kratos.context.cache;
+package com.andyadc.kratos.context.cache.config;
 
 /**
  * 配置缓存工厂类
