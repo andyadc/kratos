@@ -1,0 +1,1 @@
+websocketFilter=com.andyadc.kratos.filter.route.websocket.WebSocketFilter
