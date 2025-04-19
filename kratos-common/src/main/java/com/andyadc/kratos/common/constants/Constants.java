@@ -106,4 +106,9 @@ public interface Constants {
 
     String KRATOS_GATEWAY = "kratos-gateway";
 
+    String RESPONSE_MOCK = "mock success";
+
+    String GRAY_HEADER = "gray";
+
+    String TRUE = "true";
 }
