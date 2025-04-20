@@ -21,6 +21,7 @@
         <module>kratos-filter-route-websocket</module>
         <module>kratos-filter-post-statistics</module>
         <module>kratos-filter-route-mock</module>
+        <module>kratos-filter-route-gray</module>
     </modules>
 
     <properties>
