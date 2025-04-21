@@ -22,6 +22,7 @@
         <module>kratos-filter-post-statistics</module>
         <module>kratos-filter-route-mock</module>
         <module>kratos-filter-route-gray</module>
+        <module>kratos-filter-error</module>
     </modules>
 
     <properties>
