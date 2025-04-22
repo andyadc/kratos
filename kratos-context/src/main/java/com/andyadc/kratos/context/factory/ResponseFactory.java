@@ -8,12 +8,7 @@ import com.andyadc.kratos.context.response.GatewayResponse;
 import com.andyadc.kratos.context.response.GatewayResponseData;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.FullHttpResponse;
-import io.netty.handler.codec.http.HttpHeaderNames;
-import io.netty.handler.codec.http.HttpHeaderValues;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.http.*;
 import org.asynchttpclient.Response;
 
 import java.util.Objects;
@@ -39,7 +34,7 @@ public class ResponseFactory {
     /**
      * 获取网关的响应对象
      */
-    public static GatewayResponseData getGatewayResponse(ResponseCode code, Object... args) {
+    public static GatewayResponseData getGatewayResponseWithCode(ResponseCode code, Object... args) {
         return GATEWAY_RESPONSE.getGatewayResponse(code, args);
     }
 

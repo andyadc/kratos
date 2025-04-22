@@ -43,7 +43,7 @@ public class ErrorFilter extends AbstractEntryGatewayFilter<FilterConfig> {
             if (throwable instanceof BaseException exception) {
                 responseCode = exception.getCode();
             }
-            GatewayResponseData response = ResponseFactory.getGatewayResponse(responseCode);
+            GatewayResponseData response = ResponseFactory.getGatewayResponseWithCode(responseCode);
             context.setResponse(response);
         } finally {
             context.written();
