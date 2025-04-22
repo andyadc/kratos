@@ -32,10 +32,10 @@
 
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.1.119.Final</netty.version>
-        <async-http-client.version>3.0.1</async-http-client.version>
+        <async-http-client.version>3.0.2</async-http-client.version>
         <disruptor.version>3.4.4</disruptor.version>
         <dubbo.version>2.7.23</dubbo.version>
-        <caffeine.version>2.9.3</caffeine.version>
+        <caffeine.version>3.2.0</caffeine.version>
         <jackson.version>2.18.3</jackson.version>
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
