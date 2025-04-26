@@ -6,7 +6,6 @@ import com.andyadc.kratos.context.rule.Rule;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -108,9 +107,7 @@ public class ContextConfigCache implements ConfigCache {
     @Override
     public void updateServiceInstance(String uniqueId, ServiceInstance serviceInstance) {
         Set<ServiceInstance> set = serviceInstanceMap.get(uniqueId);
-        Iterator<ServiceInstance> iterator = set.iterator();
-        while (iterator.hasNext()) {
-            ServiceInstance instance = iterator.next();
+        for (ServiceInstance instance : set) {
             if (instance.getInstanceId().equals(serviceInstance.getInstanceId())) {
                 set.remove(instance);
             }
@@ -121,9 +118,7 @@ public class ContextConfigCache implements ConfigCache {
     @Override
     public void removeServiceInstance(String uniqueId, String serviceInstanceId) {
         Set<ServiceInstance> set = serviceInstanceMap.get(uniqueId);
-        Iterator<ServiceInstance> iterator = set.iterator();
-        while (iterator.hasNext()) {
-            ServiceInstance instance = iterator.next();
+        for (ServiceInstance instance : set) {
             if (instance.getInstanceId().equals(serviceInstanceId)) {
                 set.remove(instance);
             }
