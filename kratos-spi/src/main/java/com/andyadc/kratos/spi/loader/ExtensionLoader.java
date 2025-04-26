@@ -9,15 +9,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -192,9 +186,10 @@ public final class ExtensionLoader<T> {
         Object o = spiClassInstances.get(aClass);
         if (Objects.isNull(o)) {
             try {
-                spiClassInstances.putIfAbsent(aClass, aClass.newInstance());
+                spiClassInstances.putIfAbsent(aClass, aClass.getDeclaredConstructor().newInstance());
                 o = spiClassInstances.get(aClass);
-            } catch (InstantiationException | IllegalAccessException e) {
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                     InvocationTargetException e) {
                 throw new IllegalStateException("Extension instance(name: " + name + ", class: "
                         + aClass + ")  could not be instantiated: " + e.getMessage(), e);
 
