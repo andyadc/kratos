@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <slf4j.version>2.0.17</slf4j.version>
-        <netty.version>4.1.119.Final</netty.version>
+        <netty.version>4.1.121.Final</netty.version>
         <async-http-client.version>3.0.2</async-http-client.version>
         <disruptor.version>3.4.4</disruptor.version>
         <dubbo.version>2.7.23</dubbo.version>
@@ -40,7 +40,7 @@
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.17.0</commons-lang.version>
-        <micrometer.version>1.14.5</micrometer.version>
+        <micrometer.version>1.15.0</micrometer.version>
 
     </properties>
 
