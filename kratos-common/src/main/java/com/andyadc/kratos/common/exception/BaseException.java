@@ -12,7 +12,7 @@ public class BaseException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = -7117866649425540252L;
 
-    protected ResponseCode code;
+    public ResponseCode code;
 
     public BaseException() {
     }
@@ -46,7 +46,7 @@ public class BaseException extends RuntimeException {
         this.code = code;
     }
 
-    public ResponseCode getCode() {
+    public ResponseCode getResponseCode() {
         return code;
     }
 
