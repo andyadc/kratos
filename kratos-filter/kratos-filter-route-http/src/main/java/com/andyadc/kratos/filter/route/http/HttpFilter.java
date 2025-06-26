@@ -73,7 +73,7 @@ public class HttpFilter extends AbstractEntryGatewayFilter<FilterConfig> {
                 String url = request.getUrl();
                 // 访问超时
                 if (throwable instanceof TimeoutException) {
-                    logger.warn("http过滤器响应结果, 请求路径:{}, 耗时超过:{} ms", url, (request.getRequestTimeout() == null ?
+                    logger.warn("http过滤器响应结果, 请求路径: {}, 耗时超过: {} ms", url, (request.getRequestTimeout() == null ?
                             GatewayConfigLoader.getGatewayConfig().getHttpRequestTimeout() : request.getRequestTimeout()));
                     context.setThrowable(new ResponseException(ResponseCode.REQUEST_TIMEOUT));
                 } else {  // 其他异常
@@ -85,14 +85,14 @@ public class HttpFilter extends AbstractEntryGatewayFilter<FilterConfig> {
         } catch (Throwable t) {
             // 兜底异常
             context.setThrowable(new ResponseException(ResponseCode.INTERNAL_ERROR));
-            logger.error("http过滤器不获取到异常 ", t);
+            logger.error("HTTP filter occur error.", t);
         } finally {
             try {
                 context.written();
                 super.nextFilter(context, args);
             } catch (Throwable t) {
                 context.setThrowable(new ResponseException(ResponseCode.INTERNAL_ERROR));
-                logger.error("nextFilter异常", t);
+                logger.error("nextFilter error.", t);
             }
         }
     }
