@@ -41,7 +41,7 @@ public class ErrorFilter extends AbstractEntryGatewayFilter<FilterConfig> {
             Throwable throwable = context.getThrowable();
             ResponseCode responseCode = ResponseCode.INTERNAL_ERROR;
             if (throwable instanceof BaseException exception) {
-                responseCode = exception.getCode();
+                responseCode = exception.getResponseCode();
             }
             GatewayResponseData response = ResponseFactory.getGatewayResponseWithCode(responseCode);
             context.setResponse(response);
