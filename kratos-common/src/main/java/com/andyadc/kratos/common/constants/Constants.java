@@ -111,4 +111,11 @@ public interface Constants {
     String GRAY_HEADER = "gray";
 
     String TRUE = "true";
+
+    int CACHE_LINE = Integer.getInteger("Intel.CacheLineSize", 64);
+
+    int CACHE_LINE_REFS = CACHE_LINE / Long.BYTES;
+
+    long DEFAULT_PARK_TIMEOUT = 1_000_000L;
+
 }
