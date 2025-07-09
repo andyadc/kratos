@@ -22,7 +22,7 @@ public class GatewayConfig {
     /**
      * 网关的唯一id
      */
-    private String polarisId = IPUtils.getLocalIp() + Constants.COLON_SEPARATOR + port;
+    private String gatewayId = IPUtils.getLocalIp() + Constants.COLON_SEPARATOR + port;
 
     /**
      * 注册中心地址
@@ -43,6 +43,16 @@ public class GatewayConfig {
      * 网关CPU核心数
      */
     private int processThreads = Runtime.getRuntime().availableProcessors();
+
+    /**
+     * 线程空闲存活时间
+     */
+    private long keepAliveTime = 30;
+
+    /**
+     * 队列大小
+     */
+    private int workerQueueSize = 4096;
 
     /**
      * Netty的Boos线程数
@@ -169,12 +179,12 @@ public class GatewayConfig {
         this.port = port;
     }
 
-    public String getPolarisId() {
-        return polarisId;
+    public String getGatewayId() {
+        return gatewayId;
     }
 
-    public void setPolarisId(String polarisId) {
-        this.polarisId = polarisId;
+    public void setGatewayId(String gatewayId) {
+        this.gatewayId = gatewayId;
     }
 
     public String getRegistryAddress() {
@@ -207,6 +217,22 @@ public class GatewayConfig {
 
     public void setProcessThreads(int processThreads) {
         this.processThreads = processThreads;
+    }
+
+    public long getKeepAliveTime() {
+        return keepAliveTime;
+    }
+
+    public void setKeepAliveTime(long keepAliveTime) {
+        this.keepAliveTime = keepAliveTime;
+    }
+
+    public int getWorkerQueueSize() {
+        return workerQueueSize;
+    }
+
+    public void setWorkerQueueSize(int workerQueueSize) {
+        this.workerQueueSize = workerQueueSize;
     }
 
     public int getEventLoopGroupBossThreads() {
