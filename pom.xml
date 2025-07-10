@@ -23,6 +23,7 @@
         <module>kratos-plugins</module>
         <module>kratos-executor</module>
         <module>kratos-spi</module>
+        <module>kratos-http</module>
     </modules>
 
     <properties>
