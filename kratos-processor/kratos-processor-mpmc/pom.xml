@@ -4,23 +4,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>kratos</artifactId>
         <groupId>com.andyadc.kratos</groupId>
+        <artifactId>kratos-processor</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>kratos-processor</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>kratos-processor-api</module>
-        <module>kratos-processor-batchevent</module>
-        <module>kratos-processor-mpmc</module>
-    </modules>
+    <artifactId>kratos-processor-mpmc</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.andyadc.kratos</groupId>
+            <artifactId>kratos-processor-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
