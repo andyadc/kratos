@@ -78,11 +78,11 @@ public interface Constants {
 
     String RPC_TRANSFER_CONTEXT = "RPC_TRANSFER_CONTEXT";
 
-    String APPLICATION_CONFIG_NAME = "polaris-consumer";
+    String APPLICATION_CONFIG_NAME = "kratos-consumer";
 
-    String APPLICATION_OWNER = "polaris";
+    String APPLICATION_OWNER = "kratos";
 
-    String APPLICATION_ORGANIZATION = "polaris";
+    String APPLICATION_ORGANIZATION = "kratos";
 
     int DEFAULT_TIMEOUT = 5000;
 

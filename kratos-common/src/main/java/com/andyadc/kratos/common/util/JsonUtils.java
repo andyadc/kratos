@@ -183,8 +183,7 @@ public final class JsonUtils {
     }
 
     public static String parseOneField(String str, String fieldName) {
-        try {
-            JsonParser jsonParser = jasonFactory.createParser(str);
+        try (JsonParser jsonParser = jasonFactory.createParser(str)) {
             while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
                 // get the current token
                 String fieldname = jsonParser.currentName();
