@@ -11,7 +11,7 @@ import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.ctx.RequestResponseContext;
 import com.andyadc.kratos.context.factory.ResponseFactory;
 import com.andyadc.kratos.context.loader.GatewayConfigLoader;
-import com.andyadc.kratos.exector.http.AsyncHttpHelper;
+import com.andyadc.kratos.exector.http.AsyncHttpExecutor;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
 import com.andyadc.kratos.spi.annotation.SPIClass;
@@ -45,7 +45,7 @@ public class HttpFilter extends AbstractEntryGatewayFilter<FilterConfig> {
         Request request = requestResponseContext.getModifyRequest().buildRequest();
         gatewayContext.setClientSendRequestTime(SystemClock.millisClock().now());
 
-        CompletableFuture<Response> future = AsyncHttpHelper.getInstance().executeRequest(request);
+        CompletableFuture<Response> future = AsyncHttpExecutor.getInstance().executeRequest(request);
         boolean whenComplete = GatewayConfigLoader.getGatewayConfig().isWhenComplete();
         // 单异步模式
         if (whenComplete) {

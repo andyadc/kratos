@@ -11,16 +11,19 @@ import java.util.concurrent.CompletableFuture;
 /**
  * 异步处理器
  */
-public class AsyncHttpHelper {
+public class AsyncHttpExecutor {
 
     private AsyncHttpClient asyncHttpClient;
 
-    private AsyncHttpHelper() {
-
+    private AsyncHttpExecutor() {
     }
 
-    public static AsyncHttpHelper getInstance() {
+    public static AsyncHttpExecutor getInstance() {
         return SingletonHolder.INSTANCE;
+    }
+
+    private static final class SingletonHolder {
+        private static final AsyncHttpExecutor INSTANCE = new AsyncHttpExecutor();
     }
 
     public void initialized(AsyncHttpClient asyncHttpClient) {
@@ -35,10 +38,6 @@ public class AsyncHttpHelper {
     public <T> CompletableFuture<T> executeRequest(Request request, AsyncHandler<T> handler) {
         ListenableFuture<T> future = asyncHttpClient.executeRequest(request, handler);
         return future.toCompletableFuture();
-    }
-
-    private static final class SingletonHolder {
-        private static final AsyncHttpHelper INSTANCE = new AsyncHttpHelper();
     }
 
 }
