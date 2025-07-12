@@ -118,4 +118,14 @@ public interface Constants {
 
     long DEFAULT_PARK_TIMEOUT = 1_000_000L;
 
+    String JVM_PARAMS_PREFIX = "--";
+
+    int MIN_PORT = 0;
+
+    int MAX_PORT = 65535;
+
+    String BOSS_EPOLL = "BOSS_EPOLL";
+
+    String WORK_EPOLL = "WORK_EPOLL";
+
 }
