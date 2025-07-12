@@ -13,6 +13,10 @@ public class GatewayException extends BaseException {
         super(message);
     }
 
+    public GatewayException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
     public GatewayException(ResponseCode code) {
         super(code);
     }
