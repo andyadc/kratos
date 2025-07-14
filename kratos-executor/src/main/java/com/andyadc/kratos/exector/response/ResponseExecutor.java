@@ -12,7 +12,7 @@ import io.netty.handler.codec.http.HttpHeaderValues;
 /**
  * 响应帮助类
  */
-public class ResponseHelper {
+public class ResponseExecutor {
 
     public static void sendResponse(GatewayContext context) {
 

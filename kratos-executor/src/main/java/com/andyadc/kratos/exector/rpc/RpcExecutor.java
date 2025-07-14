@@ -31,7 +31,7 @@ import static org.apache.dubbo.rpc.protocol.dubbo.Constants.SHARE_CONNECTIONS_KE
 /**
  * RPC辅助类
  */
-public class RpcHelper {
+public class RpcExecutor {
 
     public static final String RPC_TRANSFER_CONTEXT = "RPC_TRANSFER_CONTEXT";
 
@@ -47,13 +47,13 @@ public class RpcHelper {
     private final Cache<String, GenericService> cache = CacheFactory.getRpcCache();
     private final ReferenceConfigCache referenceConfigCache = ReferenceConfigCache.getCache();
 
-    private RpcHelper() {
+    private RpcExecutor() {
         this.applicationConfig = new ApplicationConfig(APPLICATION_CONFIG_NAME);
         this.applicationConfig.setOwner(APPLICATION_OWNER);
         this.applicationConfig.setOrganization(APPLICATION_ORGANIZATION);
     }
 
-    public static RpcHelper getInstance() {
+    public static RpcExecutor getInstance() {
         return Singleton.INSTANCE.getInstance();
     }
 
@@ -151,13 +151,14 @@ public class RpcHelper {
 
     private enum Singleton {
         INSTANCE;
-        private final RpcHelper singleton;
+
+        private final RpcExecutor singleton;
 
         Singleton() {
-            singleton = new RpcHelper();
+            singleton = new RpcExecutor();
         }
 
-        public RpcHelper getInstance() {
+        public RpcExecutor getInstance() {
             return singleton;
         }
     }
