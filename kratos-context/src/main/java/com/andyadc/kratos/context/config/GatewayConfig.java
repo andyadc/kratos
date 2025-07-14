@@ -2,6 +2,7 @@ package com.andyadc.kratos.context.config;
 
 import com.andyadc.kratos.common.constants.Constants;
 import com.andyadc.kratos.common.enums.BufferType;
+import com.andyadc.kratos.common.enums.ProcessorType;
 import com.andyadc.kratos.common.util.IPUtils;
 import com.lmax.disruptor.BlockingWaitStrategy;
 import com.lmax.disruptor.BusySpinWaitStrategy;
@@ -95,6 +96,11 @@ public class GatewayConfig {
     private String bufferType = BufferType.MPMC.getCode();
 
     /**
+     * 网关处理器模式，默认为MPMC_PROCESSOR
+     */
+    private String processorType = ProcessorType.MPMC_PROCESSOR.getCode();
+
+    /**
      * 网关内存队列大小
      */
     private int bufferSize = 16 * 1024;
@@ -153,6 +159,11 @@ public class GatewayConfig {
      * 内置指标发送Topic
      */
     private String metricTopic = "kratos-metric-topic";
+
+    /**
+     * 默认的配置文件名称
+     */
+    private String configFileName = "kratos.properties";
 
     /**
      * 根据类型获取实际的等待策略
@@ -299,6 +310,14 @@ public class GatewayConfig {
         this.bufferType = bufferType;
     }
 
+    public String getProcessorType() {
+        return processorType;
+    }
+
+    public void setProcessorType(String processorType) {
+        this.processorType = processorType;
+    }
+
     public int getBufferSize() {
         return bufferSize;
     }
@@ -387,4 +406,11 @@ public class GatewayConfig {
         this.metricTopic = metricTopic;
     }
 
+    public String getConfigFileName() {
+        return configFileName;
+    }
+
+    public void setConfigFileName(String configFileName) {
+        this.configFileName = configFileName;
+    }
 }
