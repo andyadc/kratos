@@ -4,9 +4,9 @@ import com.andyadc.kratos.common.constants.Constants;
 import com.andyadc.kratos.common.util.JsonUtils;
 import com.andyadc.kratos.common.util.StringUtils;
 import com.andyadc.kratos.context.cache.filter.CacheFactory;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.rule.FilterRule;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.base.AbstractGatewayFilter;
 import com.github.benmanes.caffeine.cache.Cache;
@@ -25,7 +25,7 @@ public abstract class AbstractEntryGatewayFilter<T> extends AbstractGatewayFilte
     protected final Class<T> clazz;
     protected Filter filterAnnotation;
     protected Cache<String, T> cache;
-    protected FilterConfig filterConfig;
+    protected FilterRuleConfig filterConfig;
 
     public AbstractEntryGatewayFilter(Class<T> clazz) {
         this.filterAnnotation = this.getClass().getAnnotation(Filter.class);
@@ -34,7 +34,7 @@ public abstract class AbstractEntryGatewayFilter<T> extends AbstractGatewayFilte
     }
 
     @Override
-    public void initFilterConfig(FilterConfig filterConfig) {
+    public void initFilterConfig(FilterRuleConfig filterConfig) {
         this.filterConfig = filterConfig;
     }
 
@@ -63,7 +63,7 @@ public abstract class AbstractEntryGatewayFilter<T> extends AbstractGatewayFilte
                     fcc = JsonUtils.parse(configStr, clazz);
                     cache.put(cacheKey, fcc);
                 } catch (Exception e) {
-                    logger.error("#AbstractEntryPolarisFilter# dynamicLoadCache filterId: {}, config parse error: {}", filterAnnotation.id(), configStr, e);
+                    logger.error("DynamicLoadCache config parse error. filterId:{}, {}", filterAnnotation.id(), configStr, e);
                 }
             }
         }

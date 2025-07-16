@@ -1,4 +1,6 @@
-package com.andyadc.kratos.context.config;
+package com.andyadc.kratos.context.rule;
+
+import com.andyadc.kratos.common.constants.Constants;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -6,7 +8,7 @@ import java.io.Serializable;
 /**
  * 过滤器配置
  */
-public class FilterConfig implements Serializable {
+public class FilterRuleConfig implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -5898736012072130717L;
@@ -19,7 +21,7 @@ public class FilterConfig implements Serializable {
     /**
      * 负载均衡类型
      */
-    private String balanceType;
+    private String balanceType = Constants.BALANCE_TYPE_ROUND_RIBBON;
 
     /**
      * 超时时间
@@ -28,7 +30,7 @@ public class FilterConfig implements Serializable {
 
     private boolean rollingNumber = true;
 
-    public FilterConfig(boolean logEnabled, String balanceType, Integer timeout, boolean rollingNumber) {
+    public FilterRuleConfig(boolean logEnabled, String balanceType, Integer timeout, boolean rollingNumber) {
         this.logEnabled = logEnabled;
         this.balanceType = balanceType;
         this.timeout = timeout;

@@ -6,11 +6,11 @@ import com.andyadc.kratos.common.enums.ResponseCode;
 import com.andyadc.kratos.common.exception.ConnectionException;
 import com.andyadc.kratos.common.exception.ResponseException;
 import com.andyadc.kratos.common.time.SystemClock;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.ctx.RequestResponseContext;
 import com.andyadc.kratos.context.factory.ResponseFactory;
 import com.andyadc.kratos.context.loader.GatewayConfigLoader;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.exector.http.AsyncHttpExecutor;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
@@ -31,12 +31,12 @@ import java.util.concurrent.TimeoutException;
         value = FilterType.ROUTE,
         order = FilterConstants.HTTP_FILTER_ORDER
 )
-public class HttpFilter extends AbstractEntryGatewayFilter<FilterConfig> {
+public class HttpFilter extends AbstractEntryGatewayFilter<FilterRuleConfig> {
 
     private final Logger logger = LoggerFactory.getLogger(HttpFilter.class);
 
     public HttpFilter() {
-        super(FilterConfig.class);
+        super(FilterRuleConfig.class);
     }
 
     @Override

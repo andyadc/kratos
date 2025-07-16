@@ -2,18 +2,18 @@ package com.andyadc.kratos.filter.pre.timeout;
 
 import com.andyadc.kratos.common.constants.Protocol;
 import com.andyadc.kratos.context.attribute.AttributeKeyFactory;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.ctx.RequestResponseContext;
 import com.andyadc.kratos.context.invoker.RpcServiceInvoker;
 import com.andyadc.kratos.context.invoker.WebSocketServiceInvoker;
 import com.andyadc.kratos.context.request.HttpGatewayRequest;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
 
-public class TimeoutFilter extends AbstractEntryGatewayFilter<FilterConfig> {
+public class TimeoutFilter extends AbstractEntryGatewayFilter<FilterRuleConfig> {
 
     public TimeoutFilter() {
-        super(FilterConfig.class);
+        super(FilterRuleConfig.class);
     }
 
     @Override

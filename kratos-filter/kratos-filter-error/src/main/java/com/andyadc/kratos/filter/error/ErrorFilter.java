@@ -4,10 +4,10 @@ import com.andyadc.kratos.common.constants.FilterConstants;
 import com.andyadc.kratos.common.enums.FilterType;
 import com.andyadc.kratos.common.enums.ResponseCode;
 import com.andyadc.kratos.common.exception.BaseException;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.factory.ResponseFactory;
 import com.andyadc.kratos.context.response.GatewayResponseData;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
 import com.andyadc.kratos.spi.annotation.SPIClass;
@@ -24,12 +24,12 @@ import org.slf4j.LoggerFactory;
         value = FilterType.ERROR,
         order = FilterConstants.ERROR_FILTER_ORDER
 )
-public class ErrorFilter extends AbstractEntryGatewayFilter<FilterConfig> {
+public class ErrorFilter extends AbstractEntryGatewayFilter<FilterRuleConfig> {
 
     private final Logger logger = LoggerFactory.getLogger(ErrorFilter.class);
 
     public ErrorFilter() {
-        super(FilterConfig.class);
+        super(FilterRuleConfig.class);
     }
 
     @Override

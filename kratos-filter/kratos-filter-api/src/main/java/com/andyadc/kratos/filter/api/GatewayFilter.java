@@ -1,6 +1,6 @@
 package com.andyadc.kratos.filter.api;
 
-import com.andyadc.kratos.context.config.FilterConfig;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.spi.annotation.SPI;
 
 /**
@@ -50,7 +50,7 @@ public interface GatewayFilter<T> {
     /**
      * 初始化过滤器配置
      */
-    default void initFilterConfig(FilterConfig filterConfig) {
+    default void initFilterConfig(FilterRuleConfig filterConfig) {
     }
 
 }

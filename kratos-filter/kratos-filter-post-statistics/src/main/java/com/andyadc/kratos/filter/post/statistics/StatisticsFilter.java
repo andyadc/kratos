@@ -5,9 +5,9 @@ import com.andyadc.kratos.common.constants.FilterConstants;
 import com.andyadc.kratos.common.enums.FilterType;
 import com.andyadc.kratos.common.rolling.RollingNumber;
 import com.andyadc.kratos.common.rolling.RollingNumberEvent;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.loader.GatewayConfigLoader;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
 import com.andyadc.kratos.spi.annotation.SPIClass;
@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
         value = FilterType.POST,
         order = FilterConstants.STATISTICS_FILTER_ORDER
 )
-public class StatisticsFilter extends AbstractEntryGatewayFilter<FilterConfig> {
+public class StatisticsFilter extends AbstractEntryGatewayFilter<FilterRuleConfig> {
 
     /**
      * 统计窗口大小，默认1分钟
@@ -53,7 +53,7 @@ public class StatisticsFilter extends AbstractEntryGatewayFilter<FilterConfig> {
     private final ThreadPoolExecutor statisticsThreadPool = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, new ArrayBlockingQueue<>(128), new ThreadPoolExecutor.CallerRunsPolicy());
 
     public StatisticsFilter() {
-        super(FilterConfig.class);
+        super(FilterRuleConfig.class);
         this.rollingNumber = new RollingNumber(WINDOW_SIZE, BUCKET_SIZE, Constants.KRATOS_GATEWAY, statisticsConsumer.getStatisticsQueue());
     }
 

@@ -7,11 +7,11 @@ import com.andyadc.kratos.common.enums.ResponseCode;
 import com.andyadc.kratos.common.exception.GatewayException;
 import com.andyadc.kratos.context.attribute.AttributeKeyFactory;
 import com.andyadc.kratos.context.cache.config.ConfigCacheFactory;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.ctx.RequestResponseContext;
 import com.andyadc.kratos.context.definition.ServiceInstance;
 import com.andyadc.kratos.context.request.HttpGatewayRequest;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
 import com.andyadc.kratos.spi.annotation.SPIClass;
@@ -29,10 +29,10 @@ import java.util.Set;
         value = FilterType.PRE,
         order = FilterConstants.LOADBALANCER_FILTER_ORDER
 )
-public class LoadBalancerFilter extends AbstractEntryGatewayFilter<FilterConfig> {
+public class LoadBalancerFilter extends AbstractEntryGatewayFilter<FilterRuleConfig> {
 
     public LoadBalancerFilter() {
-        super(FilterConfig.class);
+        super(FilterRuleConfig.class);
     }
 
     @Override

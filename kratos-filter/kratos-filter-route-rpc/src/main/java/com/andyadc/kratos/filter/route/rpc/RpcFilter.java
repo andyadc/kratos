@@ -8,7 +8,6 @@ import com.andyadc.kratos.common.exception.RpcConnectionException;
 import com.andyadc.kratos.common.time.SystemClock;
 import com.andyadc.kratos.common.util.JsonUtils;
 import com.andyadc.kratos.context.attribute.AttributeKeyFactory;
-import com.andyadc.kratos.context.config.FilterConfig;
 import com.andyadc.kratos.context.ctx.GatewayContext;
 import com.andyadc.kratos.context.ctx.RequestResponseContext;
 import com.andyadc.kratos.context.factory.ResponseFactory;
@@ -17,7 +16,8 @@ import com.andyadc.kratos.context.invoker.ServiceInvoker;
 import com.andyadc.kratos.context.loader.GatewayConfigLoader;
 import com.andyadc.kratos.context.request.RpcGatewayRequest;
 import com.andyadc.kratos.context.response.GatewayResponseData;
-import com.andyadc.kratos.exector.rpc.RpcHelper;
+import com.andyadc.kratos.context.rule.FilterRuleConfig;
+import com.andyadc.kratos.exector.rpc.RpcExecutor;
 import com.andyadc.kratos.filter.api.annotation.Filter;
 import com.andyadc.kratos.filter.api.entry.AbstractEntryGatewayFilter;
 import com.andyadc.kratos.spi.annotation.SPIClass;
@@ -36,12 +36,12 @@ import java.util.concurrent.CompletableFuture;
         value = FilterType.ROUTE,
         order = FilterConstants.RPC_FILTER_ORDER
 )
-public class RpcFilter extends AbstractEntryGatewayFilter<FilterConfig> {
+public class RpcFilter extends AbstractEntryGatewayFilter<FilterRuleConfig> {
 
     private final Logger logger = LoggerFactory.getLogger(RpcFilter.class);
 
     public RpcFilter() {
-        super(FilterConfig.class);
+        super(FilterRuleConfig.class);
     }
 
     @Override
@@ -68,9 +68,9 @@ public class RpcFilter extends AbstractEntryGatewayFilter<FilterConfig> {
             throw new ResponseException(ResponseCode.RPC_PARAMETER_VALUE_ERROR);
         }
         //构建请求对象
-        RpcGatewayRequest rpcPolarisRequest = RpcHelper.buildRpcRequest(rpcServiceInvoker, parameters.toArray());
+        RpcGatewayRequest rpcGatewayRequest = RpcExecutor.buildRpcRequest(rpcServiceInvoker, parameters.toArray());
         requestResponseContext.setClientSendRequestTime(SystemClock.millisClock().now());
-        CompletableFuture<Object> future = RpcHelper.getInstance().$invokeAsync(requestResponseContext, rpcPolarisRequest);
+        CompletableFuture<Object> future = RpcExecutor.getInstance().$invokeAsync(requestResponseContext, rpcGatewayRequest);
 
         // 异步模式
         boolean whenComplete = GatewayConfigLoader.getGatewayConfig().isWhenComplete();
