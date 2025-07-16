@@ -10,7 +10,7 @@ public interface FilterConstants {
     /***************http过滤器*****************/
     String HTTP_FILTER_ID = "httpFilter";
     String HTTP_FILTER_NAME = "HTTP过滤器";
-    int HTTP_FILTER_ORDER = 2100;
+    int HTTP_FILTER_ORDER = 5000;
 
     /***************rpc过滤器*****************/
     String RPC_FILTER_ID = "rpcFilter";
@@ -30,12 +30,12 @@ public interface FilterConstants {
     /**************Gray过滤器*****************/
     String GRAY_FILTER_ID = "grayFilter";
     String GRAY_FILTER_NAME = "Gray过滤器";
-    int GRAY_FILTER_ORDER = 2100;
+    int GRAY_FILTER_ORDER = 2200;
 
     /**************timeout过滤器*****************/
     String TIMEOUT_FILTER_ID = "timeoutFilter";
     String TIMEOUT_FILTER_NAME = "timeout过滤器";
-    int TIMEOUT_FILTER_ORDER = 2200;
+    int TIMEOUT_FILTER_ORDER = 2100;
 
     /**************错误处理过滤器*****************/
     String ERROR_FILTER_ID = "errorFilter";
