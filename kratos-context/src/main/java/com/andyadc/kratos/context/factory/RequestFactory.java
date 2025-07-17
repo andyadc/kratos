@@ -23,6 +23,8 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.HttpUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
@@ -36,6 +38,8 @@ import java.util.Map;
  */
 public class RequestFactory {
 
+    private static final Logger logger = LoggerFactory.getLogger(RequestFactory.class);
+
     /**
      * 获取网关上下文
      */
@@ -46,6 +50,7 @@ public class RequestFactory {
         ServiceDefinition definition = getServiceDefinition(request);
         // 如果路径匹配失败，则直接抛出异常
         if (!MatchUtils.isMatch(definition.getPatternPath(), request.getPath())) {
+            logger.warn("definition patternPath: {}, request path: {}", definition.getPatternPath(), request.getPath());
             throw new UnmatchPathException();
         }
 
@@ -66,6 +71,7 @@ public class RequestFactory {
         HttpHeaders headers = fullHttpRequest.headers();
         String uniqueId = headers.get(Constants.UNIQUE_ID);
         if (StringUtils.isEmpty(uniqueId)) {
+            logger.warn("uniqueId from request header is null.");
             throw new NullException(ResponseCode.REQUEST_PARSE_ERROR_NO_UNIQUEID);
         }
         String host = headers.get(HttpHeaderNames.HOST);
@@ -103,6 +109,7 @@ public class RequestFactory {
     public static ServiceDefinition getServiceDefinition(HttpGatewayRequest request) {
         ServiceDefinition definition = ConfigCacheFactory.getInstance().getServiceDefinition(request.getUniqueId());
         if (definition == null) {
+            logger.warn("ServiceDefinition is null. UniqueId: {}", request.getUniqueId());
             throw new NullException(ResponseCode.SERVICE_DEFINITION_NOT_FOUND);
         }
         return definition;
@@ -115,6 +122,7 @@ public class RequestFactory {
         Map<String, ServiceInvoker> invokerMap = definition.getInvokerMap();
         ServiceInvoker serviceInvoker = invokerMap.get(context.getPath());
         if (serviceInvoker == null) {
+            logger.warn("ServiceInvoker is null. Path: {}", context.getPath());
             throw new NullException(ResponseCode.SERVICE_INVOKER_NOT_FOUND);
         }
         return serviceInvoker;
