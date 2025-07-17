@@ -1,7 +1,7 @@
 package com.andyadc.kratos.filter.api.base;
 
 import com.andyadc.kratos.context.ctx.GatewayContext;
-import com.andyadc.kratos.exector.response.ResponseHelper;
+import com.andyadc.kratos.exector.response.ResponseExecutor;
 import com.andyadc.kratos.filter.api.GatewayFilter;
 
 /**
@@ -22,7 +22,7 @@ public abstract class AbstractGatewayFilter<T> implements GatewayFilter<GatewayC
         }
         // 向客户端发送响应结果
         if (context.isWritten()) {
-            ResponseHelper.sendResponse(context);
+            ResponseExecutor.sendResponse(context);
         }
 
         // 已经没有下一个过滤器
