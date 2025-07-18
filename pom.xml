@@ -24,6 +24,7 @@
         <module>kratos-executor</module>
         <module>kratos-spi</module>
         <module>kratos-http</module>
+        <module>kratos-register</module>
     </modules>
 
     <properties>
@@ -40,7 +41,7 @@
         <jackson.version>2.18.3</jackson.version>
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
-        <commons-lang.version>3.17.0</commons-lang.version>
+        <commons-lang.version>3.18.0</commons-lang.version>
         <micrometer.version>1.15.1</micrometer.version>
 
         <logback.version>1.5.18</logback.version>
