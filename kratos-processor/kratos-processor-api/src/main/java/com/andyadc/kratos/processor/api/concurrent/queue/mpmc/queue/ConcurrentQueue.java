@@ -13,9 +13,9 @@ public interface ConcurrentQueue<E> {
 
     E peek();
 
-    long size();
+    int size();
 
-    long capacity();
+    int capacity();
 
     boolean isEmpty();
 

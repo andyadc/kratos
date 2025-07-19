@@ -99,12 +99,12 @@ public class MpmcConcurrentQueue<E> implements ConcurrentQueue<E> {
     }
 
     @Override
-    public long size() {
-        return Math.max((tailCounter.get() - headCounter.get()), 0);
+    public int size() {
+        return (int) Math.max((tailCounter.get() - headCounter.get()), 0);
     }
 
     @Override
-    public long capacity() {
+    public int capacity() {
         return this.size;
     }
 
