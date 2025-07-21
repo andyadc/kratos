@@ -23,8 +23,8 @@
         <module>kratos-plugins</module>
         <module>kratos-executor</module>
         <module>kratos-spi</module>
-        <module>kratos-http</module>
         <module>kratos-register</module>
+        <module>kratos-container</module>
     </modules>
 
     <properties>
@@ -37,12 +37,13 @@
         <async-http-client.version>3.0.2</async-http-client.version>
         <disruptor.version>3.4.4</disruptor.version>
         <dubbo.version>2.7.23</dubbo.version>
-        <caffeine.version>3.2.1</caffeine.version>
-        <jackson.version>2.18.3</jackson.version>
+        <caffeine.version>3.2.2</caffeine.version>
+        <jackson.version>2.19.2</jackson.version>
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.18.0</commons-lang.version>
         <micrometer.version>1.15.1</micrometer.version>
+        <nacos.version>2.5.1</nacos.version>
 
         <logback.version>1.5.18</logback.version>
     </properties>
