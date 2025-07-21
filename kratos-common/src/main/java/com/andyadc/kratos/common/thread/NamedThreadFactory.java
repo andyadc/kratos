@@ -1,4 +1,4 @@
-package com.andyadc.kratos.processor.api.concurrent.thread;
+package com.andyadc.kratos.common.thread;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
