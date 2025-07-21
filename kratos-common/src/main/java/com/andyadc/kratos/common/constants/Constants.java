@@ -130,4 +130,10 @@ public interface Constants {
 
     String BALANCE_TYPE_ROUND_RIBBON = "roundRibbonBalance";
 
+    String META_DATA = "meta_data";
+
+    String SERVICE_LOAD_BALANCER_RANDOM = "random";
+
+    String REGISTRY_NACOS = "nacosRegistry";
+
 }
