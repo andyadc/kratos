@@ -1,5 +1,6 @@
 package com.andyadc.kratos.context.definition;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ import java.util.Objects;
  */
 public class ServiceInstance implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -2831827682845856138L;
 
     /**
@@ -21,9 +23,14 @@ public class ServiceInstance implements Serializable {
     protected String uniqueId;
 
     /**
-     * 服务实例地址： ip:port
+     * 服务实例地址： ip
      */
     protected String address;
+
+    /**
+     * 端口
+     */
+    protected int port;
 
     /**
      * 标签信息
@@ -58,11 +65,12 @@ public class ServiceInstance implements Serializable {
     public ServiceInstance() {
     }
 
-    public ServiceInstance(String instanceId, String uniqueId, String address, String tags, Integer weight,
+    public ServiceInstance(String instanceId, String uniqueId, String address, int port, String tags, Integer weight,
                            long registerTime, boolean enable, String version, boolean gray) {
         this.instanceId = instanceId;
         this.uniqueId = uniqueId;
         this.address = address;
+        this.port = port;
         this.tags = tags;
         this.weight = weight;
         this.registerTime = registerTime;
@@ -106,6 +114,14 @@ public class ServiceInstance implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public String getTags() {

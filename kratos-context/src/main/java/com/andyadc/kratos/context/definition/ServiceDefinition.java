@@ -2,6 +2,7 @@ package com.andyadc.kratos.context.definition;
 
 import com.andyadc.kratos.context.invoker.ServiceInvoker;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Objects;
@@ -11,6 +12,7 @@ import java.util.Objects;
  */
 public class ServiceDefinition implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -3718652210391955705L;
 
     /**
