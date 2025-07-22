@@ -43,7 +43,11 @@
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.18.0</commons-lang.version>
         <micrometer.version>1.15.1</micrometer.version>
+
         <nacos.version>2.5.1</nacos.version>
+        <zookeeper.version>3.9.3</zookeeper.version>
+        <curator.version>5.8.0</curator.version>
+        <jetcd.version>0.8.5</jetcd.version>
 
         <logback.version>1.5.18</logback.version>
     </properties>
