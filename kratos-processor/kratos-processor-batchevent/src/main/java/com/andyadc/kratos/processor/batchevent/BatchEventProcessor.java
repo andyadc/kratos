@@ -20,14 +20,14 @@ public class BatchEventProcessor implements Processor {
     private BatchEvent<HttpGatewayRequestWrapper> batchEvent;
 
     @Override
-    public void init(GatewayConfig polarisConfig, Processor processor, boolean usedExecutorPool) {
+    public void init(GatewayConfig gatewayConfig, Processor processor) {
         this.processor = processor;
         ParallelBatchEvent.Builder<HttpGatewayRequestWrapper> builder = new ParallelBatchEvent.Builder<HttpGatewayRequestWrapper>()
-                .setBufferSize(polarisConfig.getBufferSize())
-                .setThreadPoolSize(polarisConfig.getProcessThreads())
+                .setBufferSize(gatewayConfig.getBufferSize())
+                .setThreadPoolSize(gatewayConfig.getProcessThreads())
                 .setProducerType(ProducerType.MULTI)
                 .setNamePrefix(THREAD_PREFIX)
-                .setWaitStrategy(polarisConfig.getWaitStrategy());
+                .setWaitStrategy(gatewayConfig.getWaitStrategy());
 
         BatchEventListener batchEventListener = new BatchEventListener(processor);
         builder.setEventListener(batchEventListener);

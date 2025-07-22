@@ -1,0 +1,1 @@
+batchEventProcessor=com.andyadc.kratos.processor.batchevent.BatchEventProcessor
