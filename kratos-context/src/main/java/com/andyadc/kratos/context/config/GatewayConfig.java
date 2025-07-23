@@ -26,9 +26,35 @@ public class GatewayConfig {
     private String gatewayId = IPUtils.getLocalIp() + Constants.COLON_SEPARATOR + port;
 
     /**
+     * 网关的服务名称
+     */
+    private String gatewayName = "kratos";
+
+    /**
+     * 版本号
+     */
+    private String version = "1.0.0";
+
+    /**
+     * 权重，默认为100
+     */
+    private int weight = 100;
+
+    /**
+     * 是否是灰度发布
+     */
+    private boolean gray;
+
+    /**
      * 注册中心地址
      */
     private String registryAddress = "";
+
+    /**
+     * 注册中心类型，取值为：nacosRegistry/zookeeperRegistry/etcdRegistry/consulRegistry
+     * 通过SPI加载对应的注册中心实现类
+     */
+    private String registryType = "nacosRegistry";
 
     /**
      * 命名空间，取值为dev/test/prod
@@ -198,12 +224,52 @@ public class GatewayConfig {
         this.gatewayId = gatewayId;
     }
 
+    public String getGatewayName() {
+        return gatewayName;
+    }
+
+    public void setGatewayName(String gatewayName) {
+        this.gatewayName = gatewayName;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public boolean isGray() {
+        return gray;
+    }
+
+    public void setGray(boolean gray) {
+        this.gray = gray;
+    }
+
     public String getRegistryAddress() {
         return registryAddress;
     }
 
     public void setRegistryAddress(String registryAddress) {
         this.registryAddress = registryAddress;
+    }
+
+    public String getRegistryType() {
+        return registryType;
+    }
+
+    public void setRegistryType(String registryType) {
+        this.registryType = registryType;
     }
 
     public String getNamespace() {
