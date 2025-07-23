@@ -38,7 +38,7 @@ public class MpmcProcessor implements Processor {
     private Thread singleThreadExecutor;
 
     @Override
-    public void init(GatewayConfig gatewayConfig, Processor processor, boolean usedExecutorPool) {
+    public void init(GatewayConfig gatewayConfig, Processor processor) {
         this.gatewayConfig = gatewayConfig;
         this.processor = processor;
         this.mpmcBlockingQueue = new MpmcBlockingQueue<>(gatewayConfig.getBufferSize());
