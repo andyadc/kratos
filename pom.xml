@@ -18,7 +18,7 @@
         <module>kratos-protocol</module>
         <module>kratos-concurrent</module>
         <module>kratos-ratelimit</module>
-        <module>kratos-loadbalance</module>
+        <module>kratos-loadbalancer</module>
         <module>kratos-breaker</module>
         <module>kratos-plugins</module>
         <module>kratos-executor</module>
