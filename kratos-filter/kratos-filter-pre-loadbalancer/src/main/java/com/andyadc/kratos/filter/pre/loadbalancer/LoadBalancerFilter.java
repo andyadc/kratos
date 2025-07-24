@@ -66,7 +66,7 @@ public class LoadBalancerFilter extends AbstractEntryGatewayFilter<FilterRuleCon
     private void executeHttpLoadBalance(RequestResponseContext requestResponseContext, String balanceType) {
         HttpGatewayRequest request = requestResponseContext.getRequest();
         String uniqueId = request.getUniqueId();
-        Set<ServiceInstance> serviceInstances = ConfigCacheFactory.getInstance().getServiceInstanceByUniqueId(uniqueId);
+        Set<ServiceInstance> serviceInstances = ConfigCacheFactory.getInstance().getServiceInstanceByUniqueId(uniqueId, requestResponseContext.isGray());
         requestResponseContext.putAttribute(AttributeKeyFactory.getMatchInstances(), serviceInstances);
         //TODO 后续通过负载均衡SPI实现负载均衡，获取服务实例，这里先随意获取一个实例
         Optional<ServiceInstance> optional = serviceInstances.stream().findAny();
