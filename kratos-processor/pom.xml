@@ -16,6 +16,7 @@
         <module>kratos-processor-api</module>
         <module>kratos-processor-batchevent</module>
         <module>kratos-processor-mpmc</module>
+        <module>kratos-processor-dependencies</module>
     </modules>
 
     <properties>
