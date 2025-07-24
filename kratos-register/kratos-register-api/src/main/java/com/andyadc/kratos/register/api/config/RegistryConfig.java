@@ -11,18 +11,26 @@ public class RegistryConfig implements Serializable {
     /**
      * 注册中心地址
      */
-    private String registerAddress;
+    private String registryAddress;
     /**
      * 注册环境
      */
     private String env;
 
-    public String getRegisterAddress() {
-        return registerAddress;
+    public RegistryConfig() {
     }
 
-    public void setRegisterAddress(String registerAddress) {
-        this.registerAddress = registerAddress;
+    public RegistryConfig(String registryAddress, String env) {
+        this.registryAddress = registryAddress;
+        this.env = env;
+    }
+
+    public String getRegistryAddress() {
+        return registryAddress;
+    }
+
+    public void setRegistryAddress(String registryAddress) {
+        this.registryAddress = registryAddress;
     }
 
     public String getEnv() {
@@ -36,7 +44,7 @@ public class RegistryConfig implements Serializable {
     @Override
     public String toString() {
         return "RegistryConfig{" +
-                "registerAddress=" + registerAddress +
+                "registryAddress=" + registryAddress +
                 ", env=" + env +
                 '}';
     }
