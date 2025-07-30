@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.andyadc.kratos</groupId>
-        <artifactId>kratos</artifactId>
+        <artifactId>kratos-loadbalancer</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>kratos-http</artifactId>
+    <artifactId>kratos-loadbalancer-random</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.andyadc.kratos</groupId>
-            <artifactId>kratos-processor-batchevent</artifactId>
+            <artifactId>kratos-loadbalancer-api</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

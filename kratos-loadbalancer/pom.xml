@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>kratos-loadbalancer-api</module>
+        <module>kratos-loadbalancer-random</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 
