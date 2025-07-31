@@ -128,7 +128,7 @@ public interface Constants {
 
     String WORK_EPOLL = "WORK_EPOLL";
 
-    String BALANCE_TYPE_ROUND_RIBBON = "roundRibbonBalance";
+    String BALANCE_TYPE_ROUND_RIBBON = "robin";
 
     String META_DATA = "meta_data";
 
