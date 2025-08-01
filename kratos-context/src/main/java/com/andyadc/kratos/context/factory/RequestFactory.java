@@ -54,13 +54,13 @@ public class RequestFactory {
             throw new UnmatchPathException();
         }
 
-        ServiceInvoker serviceInoker = getServiceInoker(request, definition);
-        String ruleId = serviceInoker.getRuleId();
+        ServiceInvoker serviceInvoker = getServiceInoker(request, definition);
+        String ruleId = serviceInvoker.getRuleId();
         ConfigCache cache = ConfigCacheFactory.getInstance();
         Rule rule = cache.getRule(ruleId);
         GatewayContext context = RequestResponseContext.getRequestResponseContext(definition.getProtocol(), ctx, HttpUtil.isKeepAlive(fullHttpRequest), request, rule);
         context.setServerReceiveRequestTime(request.getBeginTime());
-        putContext(context, serviceInoker);
+        putContext(context, serviceInvoker);
         return context;
     }
 

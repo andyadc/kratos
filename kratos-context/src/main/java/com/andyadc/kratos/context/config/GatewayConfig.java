@@ -177,7 +177,7 @@ public class GatewayConfig {
     private int httpPooledConnectionIdleTimeout = 60 * 1000;
 
     /**
-     * 默认指标发送Kafka底子好
+     * 默认指标发送Kafka地址
      */
     private String kafkaAddress = "";
 

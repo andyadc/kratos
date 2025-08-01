@@ -23,6 +23,7 @@ public class ServiceFactory {
         serviceDefinition.setServiceId(gatewayConfig.getGatewayName());
         serviceDefinition.setEnvType(gatewayConfig.getEnv());
         serviceDefinition.setVersion(gatewayConfig.getVersion());
+        serviceDefinition.setPatternPath(Constants.PATH_PATTERN);
         serviceDefinition.setInvokerMap(Collections.emptyMap());
         return serviceDefinition;
     }
