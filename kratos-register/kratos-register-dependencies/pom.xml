@@ -5,25 +5,29 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.andyadc.kratos</groupId>
-        <artifactId>kratos</artifactId>
+        <artifactId>kratos-register</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>kratos-register</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>kratos-register-api</module>
-        <module>kratos-register-dependencies</module>
-        <module>kratos-register-nacos</module>
-        <module>kratos-register-zookeeper</module>
-        <module>kratos-register-etcd</module>
-    </modules>
+    <artifactId>kratos-register-dependencies</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.andyadc.kratos</groupId>
+            <artifactId>kratos-register-nacos</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.andyadc.kratos</groupId>
+            <artifactId>kratos-register-zookeeper</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
