@@ -5,23 +5,24 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.andyadc.kratos</groupId>
-        <artifactId>kratos</artifactId>
+        <artifactId>kratos-plugins</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>kratos-plugins</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>kratos-plugins-api</module>
-        <module>kratos-plugins-logger</module>
-        <module>kratos-plugins-dependencies</module>
-    </modules>
+    <artifactId>kratos-plugins-logger</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.andyadc.kratos</groupId>
+            <artifactId>kratos-plugins-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
