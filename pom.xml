@@ -46,7 +46,7 @@
 
         <nacos.version>2.5.1</nacos.version>
         <zookeeper.version>3.9.3</zookeeper.version>
-        <curator.version>5.8.0</curator.version>
+        <curator.version>5.9.0</curator.version>
         <jetcd.version>0.8.5</jetcd.version>
 
         <logback.version>1.5.18</logback.version>
