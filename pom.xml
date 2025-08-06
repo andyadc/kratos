@@ -25,6 +25,7 @@
         <module>kratos-spi</module>
         <module>kratos-register</module>
         <module>kratos-container</module>
+        <module>kratos-client</module>
     </modules>
 
     <properties>
