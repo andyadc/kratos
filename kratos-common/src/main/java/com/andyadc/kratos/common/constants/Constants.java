@@ -136,4 +136,26 @@ public interface Constants {
 
     String REGISTRY_NACOS = "nacosRegistry";
 
+    String CONFIG_NACOS = "nacosConfig";
+
+    String RULES = "rules";
+
+    long SCHEDULE_TIME_MS = 5000;
+
+    String POLARIS = "polaris";
+
+    String RPC_LOAD_BALANCE = "rpc_load_balance";
+
+    int RPC_TIMEOUT = 5000;
+
+    String RPC_NO_PROVIDER_MESSAGE = "No provider available from registry";
+
+    boolean ENABLED_TRUE = true;
+
+    int WEIGHT = 100;
+
+    static String getKey(String prefix, String split, String suffix) {
+        return prefix.concat(split).concat(suffix);
+    }
+
 }

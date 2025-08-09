@@ -1,10 +1,6 @@
 package com.andyadc.kratos.client.api.annotation;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * 方法级别注解，主要执行的是方法的逻辑
@@ -13,6 +9,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface GatewayInvoker {
+
+    /**
+     * 规则id，与nacos配置的规则id对应
+     */
+    String ruleId();
 
     /**
      * 接口的路径
