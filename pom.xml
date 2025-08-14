@@ -26,6 +26,7 @@
         <module>kratos-register</module>
         <module>kratos-container</module>
         <module>kratos-client</module>
+        <module>kratos-examples</module>
     </modules>
 
     <properties>
