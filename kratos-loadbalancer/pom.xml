@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>kratos-loadbalancer-api</module>
+        <module>kratos-loadbalancer-dependencies</module>
         <module>kratos-loadbalancer-random</module>
         <module>kratos-loadbalancer-hash</module>
     </modules>
@@ -21,5 +22,18 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.andyadc.kratos</groupId>
+            <artifactId>kratos-loadbalancer-random</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.andyadc.kratos</groupId>
+            <artifactId>kratos-loadbalancer-hash</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
