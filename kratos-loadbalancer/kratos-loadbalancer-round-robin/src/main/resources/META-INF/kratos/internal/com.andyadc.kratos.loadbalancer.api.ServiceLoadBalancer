@@ -1,0 +1,1 @@
+random=com.andyadc.kratos.loadbalancer.round.robin.RobinServiceLoadBalancer
