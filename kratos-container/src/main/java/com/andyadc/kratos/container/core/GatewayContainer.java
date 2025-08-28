@@ -39,6 +39,7 @@ public class GatewayContainer implements Container {
 
     @Override
     public void init() {
+        long start = System.currentTimeMillis();
         Processor coreProcessor = new NettyCoreProcessor();
         String processorType = gatewayConfig.getProcessorType();
         if (ProcessorType.isBatchEventOrMpmc(processorType)) {
@@ -57,14 +58,15 @@ public class GatewayContainer implements Container {
         this.registryService = ExtensionLoader.getExtension(RegistryService.class, gatewayConfig.getRegistryType());
         this.registryService.init(new RegistryConfig(gatewayConfig.getRegistryAddress(), gatewayConfig.getEnv()));
         // 生成网关服务定义信息
-        this.serviceDefinition = ServiceFactory.getPolarisServiceDefinition(gatewayConfig);
+        this.serviceDefinition = ServiceFactory.getKratosServiceDefinition(gatewayConfig);
         // 生成网关服务实例信息
-        this.serviceInstance = ServiceFactory.getPolarisServiceInstance(gatewayConfig);
-        logger.info("Kratos GatewayContainer initialized.");
+        this.serviceInstance = ServiceFactory.getKratosServiceInstance(gatewayConfig);
+        logger.info("Kratos GatewayContainer initialized in {} ms", (System.currentTimeMillis() - start));
     }
 
     @Override
     public void start() {
+        long start = System.currentTimeMillis();
         this.processor.start();
         this.httpServerContainer.start();
         this.httpClientContainer.start();
@@ -72,7 +74,7 @@ public class GatewayContainer implements Container {
         this.registryService.register(serviceDefinition, serviceInstance);
         // 服务发现
         this.registryService.discoveryAll();
-        logger.info("Kratos GatewayContainer started.");
+        logger.info("Kratos GatewayContainer started in {} ms", (System.currentTimeMillis() - start));
     }
 
     @Override

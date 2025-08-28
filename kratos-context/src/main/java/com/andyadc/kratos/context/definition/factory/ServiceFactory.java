@@ -17,7 +17,7 @@ public class ServiceFactory {
     /**
      * 生成服务定义信息
      */
-    public static ServiceDefinition getPolarisServiceDefinition(GatewayConfig gatewayConfig) {
+    public static ServiceDefinition getKratosServiceDefinition(GatewayConfig gatewayConfig) {
         ServiceDefinition serviceDefinition = new ServiceDefinition();
         serviceDefinition.setUniqueId(gatewayConfig.getGatewayName().concat(Constants.COLON_SEPARATOR).concat(gatewayConfig.getVersion()));
         serviceDefinition.setServiceId(gatewayConfig.getGatewayName());
@@ -31,7 +31,7 @@ public class ServiceFactory {
     /**
      * 生成服务实例信息
      */
-    public static ServiceInstance getPolarisServiceInstance(GatewayConfig gatewayConfig) {
+    public static ServiceInstance getKratosServiceInstance(GatewayConfig gatewayConfig) {
         String localIp = IPUtils.getLocalIp();
         int port = gatewayConfig.getPort();
         ServiceInstance serviceInstance = new ServiceInstance();
