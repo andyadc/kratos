@@ -142,7 +142,7 @@ public interface Constants {
 
     long SCHEDULE_TIME_MS = 5000;
 
-    String POLARIS = "polaris";
+    String KRATOS = "kratos";
 
     String RPC_LOAD_BALANCE = "rpc_load_balance";
 

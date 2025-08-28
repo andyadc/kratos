@@ -72,6 +72,11 @@ public class GatewayConfig {
     private int processThreads = Runtime.getRuntime().availableProcessors();
 
     /**
+     * 是否使用线程池执行处理器，默认为true
+     */
+    private boolean usedExecutorPool = true;
+
+    /**
      * 线程空闲存活时间
      */
     private long keepAliveTime = 30;
@@ -294,6 +299,14 @@ public class GatewayConfig {
 
     public void setProcessThreads(int processThreads) {
         this.processThreads = processThreads;
+    }
+
+    public boolean isUsedExecutorPool() {
+        return usedExecutorPool;
+    }
+
+    public void setUsedExecutorPool(boolean usedExecutorPool) {
+        this.usedExecutorPool = usedExecutorPool;
     }
 
     public long getKeepAliveTime() {
