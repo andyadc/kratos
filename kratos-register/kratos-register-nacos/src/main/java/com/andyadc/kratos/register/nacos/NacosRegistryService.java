@@ -130,6 +130,12 @@ public class NacosRegistryService implements RegistryService {
     @Override
     public void destroy() {
         this.scheduledThreadPool.shutdown();
+        try {
+            namingService.shutDown();
+            namingMaintainService.shutDown();
+        } catch (NacosException e) {
+            logger.warn("NacosRegistryService shutdown error.", e);
+        }
     }
 
 }
