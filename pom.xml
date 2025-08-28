@@ -44,7 +44,7 @@
         <guava.version>33.3.1-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.18.0</commons-lang.version>
-        <micrometer.version>1.15.1</micrometer.version>
+        <micrometer.version>1.15.3</micrometer.version>
 
         <nacos.version>2.5.1</nacos.version>
         <zookeeper.version>3.9.3</zookeeper.version>
