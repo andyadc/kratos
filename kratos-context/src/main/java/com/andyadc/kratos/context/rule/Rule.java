@@ -71,7 +71,12 @@ public class Rule implements Comparable<Rule>, Serializable {
      * 获取匹配到的规则
      */
     public FilterRule getFilterRule(String id) {
-        return StringUtils.isEmpty(id) ? null : filterRules.stream().filter(filterRule -> id.equalsIgnoreCase(filterRule.getId())).findFirst().orElse(null);
+        return StringUtils.isEmpty(id)
+                ? null
+                : filterRules.stream()
+                .filter(
+                        filterRule -> id.equalsIgnoreCase(filterRule.getId())
+                ).findFirst().orElse(null);
     }
 
     /**
