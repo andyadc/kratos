@@ -53,6 +53,7 @@ public class HttpServerContainer implements Container {
 
     @Override
     public void init() {
+        long start = System.currentTimeMillis();
         this.serverBootstrap = new ServerBootstrap();
         if (useEPoll()) {
             this.eventBossGroup = new EpollEventLoopGroup(gatewayConfig.getEventLoopGroupBossThreads(),
@@ -65,7 +66,7 @@ public class HttpServerContainer implements Container {
             this.eventWorkGroup = new NioEventLoopGroup(gatewayConfig.getEventLoopGroupWorkThreads(),
                     new DefaultThreadFactory(Constants.WORK_EPOLL));
         }
-        logger.info("Kratos HttpServerContainer initialized.");
+        logger.info("Kratos HttpServerContainer initialized in {} ms", (System.currentTimeMillis() - start));
     }
 
     @Override

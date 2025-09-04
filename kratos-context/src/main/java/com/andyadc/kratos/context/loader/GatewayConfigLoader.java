@@ -2,6 +2,7 @@ package com.andyadc.kratos.context.loader;
 
 import com.andyadc.kratos.common.constants.Constants;
 import com.andyadc.kratos.common.util.BeanPropertiesUtils;
+import com.andyadc.kratos.common.util.JsonUtils;
 import com.andyadc.kratos.common.util.StringUtils;
 import com.andyadc.kratos.context.config.GatewayConfig;
 import org.slf4j.Logger;
@@ -62,6 +63,8 @@ public class GatewayConfigLoader {
         this.loadJvmConfig();
         // 加载运行时参数
         this.loadRuntimeConfig(args);
+
+        logger.info("GatewayConfig {}", JsonUtils.toJSONString(gatewayConfig));
         return gatewayConfig;
     }
 

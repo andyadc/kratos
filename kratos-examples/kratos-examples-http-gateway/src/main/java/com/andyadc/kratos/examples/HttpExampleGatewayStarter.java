@@ -7,11 +7,15 @@ import com.andyadc.kratos.context.definition.ServiceDefinition;
 import com.andyadc.kratos.context.invoker.HttpServiceInvoker;
 import com.andyadc.kratos.context.invoker.ServiceInvoker;
 import com.andyadc.kratos.context.loader.GatewayConfigLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class HttpExampleGatewayStarter {
+
+    private static final Logger logger = LoggerFactory.getLogger(HttpExampleGatewayStarter.class);
 
     public static void main(String[] args) {
         // 初始化后端服务相关配置

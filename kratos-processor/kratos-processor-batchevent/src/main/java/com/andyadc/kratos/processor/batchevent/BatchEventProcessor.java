@@ -8,12 +8,16 @@ import com.andyadc.kratos.processor.api.concurrent.queue.batchevent.event.Parall
 import com.andyadc.kratos.processor.api.concurrent.queue.batchevent.listener.BatchEventListener;
 import com.andyadc.kratos.spi.annotation.SPIClass;
 import com.lmax.disruptor.dsl.ProducerType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * BatchEvent缓冲区队列的核心实现，最终还是会通过NettyCoreProcessor执行
  */
 @SPIClass
 public class BatchEventProcessor implements Processor {
+
+    private static final Logger logger = LoggerFactory.getLogger(BatchEventProcessor.class);
 
     private static final String THREAD_PREFIX = "batch-event-";
     private Processor processor;
@@ -43,12 +47,14 @@ public class BatchEventProcessor implements Processor {
     public void start() {
         this.processor.start();
         this.batchEvent.start();
+        logger.info("BatchEventProcessor startup.");
     }
 
     @Override
     public void shutdown() {
         this.processor.shutdown();
         this.batchEvent.shutdown();
+        logger.info("BatchEventProcessor shutdown completed.");
     }
 
 }
