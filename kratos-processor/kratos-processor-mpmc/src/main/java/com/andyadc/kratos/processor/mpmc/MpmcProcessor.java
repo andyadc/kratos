@@ -42,7 +42,7 @@ public class MpmcProcessor implements Processor {
         this.gatewayConfig = gatewayConfig;
         this.processor = processor;
         this.mpmcBlockingQueue = new MpmcBlockingQueue<>(gatewayConfig.getBufferSize());
-        this.usedExecutorPool = usedExecutorPool;
+        this.usedExecutorPool = gatewayConfig.isUsedExecutorPool();
     }
 
     @Override
@@ -69,6 +69,7 @@ public class MpmcProcessor implements Processor {
             this.singleThreadExecutor = new Thread(new MpmcProcessorExecutor());
             this.singleThreadExecutor.start();
         }
+        logger.info("MpmcProcessor startup");
     }
 
     @Override
@@ -78,6 +79,7 @@ public class MpmcProcessor implements Processor {
         if (usedExecutorPool) {
             this.threadPoolExecutor.shutdown();
         }
+        logger.info("MpmcProcessor shutdown completed.");
     }
 
     private class MpmcProcessorExecutor implements Runnable {
@@ -96,7 +98,7 @@ public class MpmcProcessor implements Processor {
                     HttpRequest request = requestWrapper.getFullHttpRequest();
                     ChannelHandlerContext ctx = requestWrapper.getCtx();
                     try {
-                        logger.error("请求处理失败, request:{}, message:{}", request, t.getMessage());
+                        logger.error("请求处理失败, request: {}, message: {}", request, t.getMessage());
                         FullHttpResponse response = ResponseFactory.getHttpResponse(ResponseCode.INTERNAL_ERROR);
                         if (!HttpUtil.isKeepAlive(request)) {
                             ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
@@ -105,7 +107,7 @@ public class MpmcProcessor implements Processor {
                             ctx.writeAndFlush(response);
                         }
                     } catch (Exception e) {
-                        logger.error("响应客户端数据失败, request:{}, message:{}", request, e.getMessage(), e);
+                        logger.error("响应客户端数据失败, request: {}, message: {}", request, e.getMessage(), e);
                     }
                 }
             }

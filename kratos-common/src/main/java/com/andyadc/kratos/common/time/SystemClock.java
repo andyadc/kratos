@@ -32,7 +32,8 @@ public class SystemClock {
             return thread;
         });
         scheduler.scheduleAtFixedRate(() ->
-                now.set(System.currentTimeMillis()), precision, precision, TimeUnit.MILLISECONDS);
+                now.set(System.currentTimeMillis()), precision, precision, TimeUnit.MILLISECONDS
+        );
     }
 
     public long now() {
