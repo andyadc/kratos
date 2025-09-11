@@ -13,18 +13,14 @@
         <module>kratos-common</module>
         <module>kratos-context</module>
         <module>kratos-core</module>
-        <module>kratos-filter</module>
         <module>kratos-processor</module>
-        <module>kratos-protocol</module>
-        <module>kratos-concurrent</module>
-        <module>kratos-ratelimit</module>
-        <module>kratos-loadbalancer</module>
-        <module>kratos-breaker</module>
-        <module>kratos-plugins</module>
         <module>kratos-executor</module>
         <module>kratos-spi</module>
+        <module>kratos-filter</module>
         <module>kratos-register</module>
         <module>kratos-container</module>
+        <module>kratos-loadbalancer</module>
+        <module>kratos-plugins</module>
         <module>kratos-client</module>
         <module>kratos-examples</module>
     </modules>
