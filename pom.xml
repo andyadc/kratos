@@ -37,7 +37,7 @@
         <dubbo.version>2.7.23</dubbo.version>
         <caffeine.version>3.2.2</caffeine.version>
         <jackson.version>2.19.2</jackson.version>
-        <guava.version>33.3.1-jre</guava.version>
+        <guava.version>33.5.0-jre</guava.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <commons-lang.version>3.18.0</commons-lang.version>
         <micrometer.version>1.15.3</micrometer.version>
