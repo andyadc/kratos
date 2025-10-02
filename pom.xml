@@ -47,7 +47,7 @@
         <curator.version>5.9.0</curator.version>
         <jetcd.version>0.8.5</jetcd.version>
 
-        <logback.version>1.5.18</logback.version>
+        <logback.version>1.5.19</logback.version>
     </properties>
 
     <dependencyManagement>
