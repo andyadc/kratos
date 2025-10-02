@@ -26,10 +26,6 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <slf4j.version>2.0.17</slf4j.version>
         <netty.version>4.1.127.Final</netty.version>
         <async-http-client.version>3.0.2</async-http-client.version>
@@ -48,6 +44,10 @@
         <jetcd.version>0.8.5</jetcd.version>
 
         <logback.version>1.5.19</logback.version>
+
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
